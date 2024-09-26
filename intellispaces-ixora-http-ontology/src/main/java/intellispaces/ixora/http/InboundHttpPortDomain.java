@@ -7,5 +7,5 @@ import intellispaces.framework.core.annotation.Transition;
 public interface InboundHttpPortDomain extends HttpPortDomain {
 
   @Transition("71693529-9c92-4a05-bab0-2d9a378ba9ab")
-  int portNumber();
+  Integer portNumber();
 }

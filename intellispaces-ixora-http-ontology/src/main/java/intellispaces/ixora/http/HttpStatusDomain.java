@@ -7,5 +7,5 @@ import intellispaces.framework.core.annotation.Transition;
 public interface HttpStatusDomain {
 
   @Transition("7f6f42ae-a190-467f-a08e-e19f07bb538b")
-  int code();
+  Integer code();
 }

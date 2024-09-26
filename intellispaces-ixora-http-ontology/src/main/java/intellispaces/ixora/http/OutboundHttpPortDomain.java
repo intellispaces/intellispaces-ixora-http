@@ -10,5 +10,5 @@ public interface OutboundHttpPortDomain extends HttpPortDomain {
   String server();
 
   @Transition("b6d40ba5-3582-4e32-bb72-62bfd7e7a0eb")
-  int portNumber();
+  Integer portNumber();
 }

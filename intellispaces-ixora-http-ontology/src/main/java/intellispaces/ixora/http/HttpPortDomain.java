@@ -10,7 +10,7 @@ public interface HttpPortDomain {
 
   @Channel(
       value = "04eae999-4651-447f-82b9-9de3dcc27659",
-      name = "HttpPortExchangeTransition",
+      name = "HttpPortExchangeChannel",
       allowedTraverse = TraverseTypes.MappingOfMoving
   )
   HttpResponseDomain exchange(HttpRequestDomain request) throws HttpException;

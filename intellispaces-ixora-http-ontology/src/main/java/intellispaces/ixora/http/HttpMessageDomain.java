@@ -2,7 +2,7 @@ package intellispaces.ixora.http;
 
 import intellispaces.framework.core.annotation.Channel;
 import intellispaces.framework.core.annotation.Domain;
-import intellispaces.ixora.structures.collection.CursorDomain;
+import intellispaces.ixora.data.cursor.CursorDomain;
 
 @Domain("0c5ed260-ccf7-4b7a-970c-12a696a99dbc")
 public interface HttpMessageDomain {

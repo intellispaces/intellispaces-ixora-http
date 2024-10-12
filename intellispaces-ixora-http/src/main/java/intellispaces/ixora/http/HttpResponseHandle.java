@@ -4,8 +4,8 @@ import intellispaces.common.base.collection.ArraysFunctions;
 import intellispaces.common.base.text.TextFunctions;
 import intellispaces.framework.core.annotation.Mapper;
 import intellispaces.framework.core.annotation.ObjectHandle;
-import intellispaces.ixora.structures.collection.Cursor;
-import intellispaces.ixora.structures.collection.Cursors;
+import intellispaces.ixora.data.cursor.Cursor;
+import intellispaces.ixora.data.cursor.Cursors;
 
 import java.io.InputStream;
 

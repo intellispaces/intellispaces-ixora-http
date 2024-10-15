@@ -3,7 +3,7 @@ package intellispaces.ixora.http;
 import intellispaces.framework.core.annotation.Mapper;
 import intellispaces.framework.core.annotation.ObjectHandle;
 
-@ObjectHandle(value = HttpStatusDomain.class, name = "HttpStatusHandleImpl")
+@ObjectHandle(HttpStatusDomain.class)
 abstract class HttpStatusHandle implements UnmovableHttpStatus {
   private final int code;
 

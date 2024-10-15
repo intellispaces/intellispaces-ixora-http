@@ -8,15 +8,15 @@ public interface HttpResponses {
     return new HttpResponseHandleImpl(status);
   }
 
-  static HttpResponse get(HttpStatus status, String messageBody) {
-    return new HttpResponseHandleImpl(status, messageBody);
+  static HttpResponse get(HttpStatus status, InputStream body) {
+    return new HttpResponseHandleImpl(status, body);
   }
 
-  static HttpResponse get(HttpStatus status, byte[] messageBody) {
-    return new HttpResponseHandleImpl(status, messageBody);
+  static HttpResponse get(HttpStatus status, String body) {
+    return new HttpResponseHandleImpl(status, body);
   }
 
-  static HttpResponse get(HttpStatus status, InputStream messageBody) {
-    return new HttpResponseHandleImpl(status, messageBody);
+  static HttpResponse get(HttpStatus status, byte[] body) {
+    return new HttpResponseHandleImpl(status, body);
   }
 }

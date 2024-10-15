@@ -2,7 +2,7 @@ package intellispaces.ixora.http;
 
 public interface HttpRequests {
 
-  static HttpRequest get(String requestURI, HttpMethod method) {
-    return new HttpRequestHandleImpl(requestURI, method);
+  static HttpRequest get(HttpMethod method, String requestURI) {
+    return new HttpRequestHandleImpl(method, requestURI);
   }
 }

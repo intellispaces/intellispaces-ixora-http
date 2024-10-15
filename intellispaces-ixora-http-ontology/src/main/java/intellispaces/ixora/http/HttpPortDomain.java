@@ -5,6 +5,9 @@ import intellispaces.framework.core.annotation.Domain;
 import intellispaces.framework.core.traverse.TraverseTypes;
 import intellispaces.ixora.http.exception.HttpException;
 
+/**
+ * HTTP module port.
+ */
 @Domain("27d55c7d-a278-42d6-bda9-63db5114e1ed")
 public interface HttpPortDomain {
 

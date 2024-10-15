@@ -3,7 +3,7 @@ package intellispaces.ixora.http;
 import intellispaces.framework.core.annotation.Mapper;
 import intellispaces.framework.core.annotation.ObjectHandle;
 
-@ObjectHandle(value = HttpMethodDomain.class, name = "HttpMethodHandleImpl")
+@ObjectHandle(HttpMethodDomain.class)
 abstract class HttpMethodHandle implements UnmovableHttpMethod {
   private final String name;
 

@@ -1,6 +1,12 @@
 package intellispaces.ixora.http;
 
-public interface HttpStatuses {
+public final class HttpStatuses {
 
-  HttpStatus OK = new HttpStatusHandleImpl(200);
+  private static final HttpStatus OK = new HttpStatusHandleImpl(200);
+
+  private HttpStatuses() {}
+
+  public static HttpStatus ok() {
+    return OK;
+  }
 }

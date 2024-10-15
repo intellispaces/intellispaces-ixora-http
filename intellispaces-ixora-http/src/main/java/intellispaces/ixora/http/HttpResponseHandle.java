@@ -4,29 +4,27 @@ import intellispaces.common.base.collection.ArraysFunctions;
 import intellispaces.common.base.text.TextFunctions;
 import intellispaces.framework.core.annotation.Mapper;
 import intellispaces.framework.core.annotation.ObjectHandle;
-import intellispaces.ixora.data.cursor.Cursor;
-import intellispaces.ixora.data.cursor.Cursors;
+import intellispaces.ixora.data.datastream.ByteInputStream;
+import intellispaces.ixora.data.datastream.DataStreams;
 
 import java.io.InputStream;
 
-@ObjectHandle(value = HttpResponseDomain.class, name = "HttpResponseHandleImpl")
+@ObjectHandle(HttpResponseDomain.class)
 abstract class HttpResponseHandle implements UnmovableHttpResponse {
   private final HttpStatus status;
-  private final InputStream messageBody;
-  private final Cursor<Byte> cursor;
+  private final ByteInputStream bodyStream;
 
-  HttpResponseHandle(HttpStatus status, InputStream messageBody) {
+  HttpResponseHandle(HttpStatus status, InputStream body) {
     this.status = status;
-    this.messageBody = messageBody;
-    this.cursor = Cursors.get(messageBody);
+    this.bodyStream = DataStreams.get(body);
   }
 
-  HttpResponseHandle(HttpStatus status, String messageBody) {
-    this(status, TextFunctions.stringToInputStream(messageBody));
+  HttpResponseHandle(HttpStatus status, String body) {
+    this(status, TextFunctions.stringToInputStream(body));
   }
 
-  HttpResponseHandle(HttpStatus status, byte[] messageBody) {
-    this(status, ArraysFunctions.arrayToInputStream(messageBody));
+  HttpResponseHandle(HttpStatus status, byte[] body) {
+    this(status, ArraysFunctions.arrayToInputStream(body));
   }
 
   HttpResponseHandle(HttpStatus status) {
@@ -39,9 +37,8 @@ abstract class HttpResponseHandle implements UnmovableHttpResponse {
     return this.status;
   }
 
-  @Mapper
   @Override
-  public Cursor<Byte> messageBodyCursor() {
-    return this.cursor;
+  public ByteInputStream bodyStream() {
+    return bodyStream;
   }
 }

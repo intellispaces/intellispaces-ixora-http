@@ -2,12 +2,13 @@ package intellispaces.ixora.http;
 
 import intellispaces.framework.core.annotation.Channel;
 import intellispaces.framework.core.annotation.Domain;
+import intellispaces.ixora.system.OutboundModulePortDomain;
 
 /**
  * Outbound HTTP module port.
  */
 @Domain("20f03cb9-c0b5-4ae4-9736-0468cdddd12b")
-public interface OutboundHttpPortDomain extends HttpPortDomain {
+public interface OutboundHttpPortDomain extends HttpPortDomain, OutboundModulePortDomain {
 
   /**
    * Server address.

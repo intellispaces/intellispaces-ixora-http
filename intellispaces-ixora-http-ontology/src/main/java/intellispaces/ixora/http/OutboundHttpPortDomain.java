@@ -10,15 +10,9 @@ import intellispaces.ixora.system.OutboundModulePortDomain;
 @Domain("20f03cb9-c0b5-4ae4-9736-0468cdddd12b")
 public interface OutboundHttpPortDomain extends HttpPortDomain, OutboundModulePortDomain {
 
-  /**
-   * Server address.
-   */
-  @Channel("a300f5c5-a9c2-4d34-9d89-709f60b39c63")
-  String server();
+  @Channel("ee91aeee-5401-438c-81b1-df3948624bf2")
+  HttpPortDomain asHttpPort();
 
-  /**
-   * Server port.
-   */
-  @Channel("b6d40ba5-3582-4e32-bb72-62bfd7e7a0eb")
-  Integer portNumber();
+  @Channel("b1865f7e-8249-4e81-81ef-95cab84afe81")
+  OutboundModulePortDomain asOutboundModulePort();
 }

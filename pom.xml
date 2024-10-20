@@ -14,6 +14,7 @@
     <modules>
         <module>intellispaces-ixora-http-ontology</module>
         <module>intellispaces-ixora-http</module>
+        <module>intellispaces-ixora-http-test</module>
     </modules>
 
     <build>

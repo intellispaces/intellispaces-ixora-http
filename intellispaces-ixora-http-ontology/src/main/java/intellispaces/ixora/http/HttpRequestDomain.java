@@ -6,6 +6,9 @@ import intellispaces.framework.core.annotation.Domain;
 @Domain("7424475c-e034-47f7-9627-5ca8845867c9")
 public interface HttpRequestDomain extends HttpMessageDomain {
 
+  @Channel("5d96b126-71a7-4583-ad75-9636b977fd15")
+  HttpMessageDomain asHttpMessage();
+
   @Channel("35fd9d51-2aca-4ddd-aee3-559f513fa82c")
   String requestURI();
 

@@ -2,8 +2,8 @@ package intellispaces.ixora.http;
 
 import intellispaces.framework.core.annotation.Mapper;
 import intellispaces.framework.core.annotation.ObjectHandle;
-import intellispaces.ixora.data.datastream.ByteInputStream;
 import intellispaces.ixora.data.datastream.DataStreams;
+import intellispaces.ixora.data.datastream.MovableByteInputStream;
 
 import java.io.InputStream;
 
@@ -11,7 +11,7 @@ import java.io.InputStream;
 abstract class HttpRequestHandle implements UnmovableHttpRequest {
   private final HttpMethod method;
   private final String requestURI;
-  private final ByteInputStream bodyStream;
+  private final MovableByteInputStream bodyStream;
 
   HttpRequestHandle(HttpMethod method, String requestURI) {
     this.method = method;
@@ -32,7 +32,7 @@ abstract class HttpRequestHandle implements UnmovableHttpRequest {
   }
 
   @Override
-  public ByteInputStream bodyStream() {
+  public MovableByteInputStream bodyStream() {
     return bodyStream;
   }
 }

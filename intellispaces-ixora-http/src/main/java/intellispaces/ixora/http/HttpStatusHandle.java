@@ -16,4 +16,10 @@ abstract class HttpStatusHandle implements UnmovableHttpStatus {
   public Integer code() {
     return code;
   }
+
+  @Mapper
+  @Override
+  public Boolean isOk() {
+    return HttpStatuses.ok().code() == code;
+  }
 }

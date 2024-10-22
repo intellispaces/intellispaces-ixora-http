@@ -3,16 +3,17 @@ package intellispaces.ixora.http;
 import intellispaces.common.base.collection.ArraysFunctions;
 import intellispaces.common.base.text.TextFunctions;
 import intellispaces.framework.core.annotation.Mapper;
+import intellispaces.framework.core.annotation.MapperOfMoving;
 import intellispaces.framework.core.annotation.ObjectHandle;
-import intellispaces.ixora.data.datastream.ByteInputStream;
 import intellispaces.ixora.data.datastream.DataStreams;
+import intellispaces.ixora.data.datastream.MovableByteInputStream;
 
 import java.io.InputStream;
 
 @ObjectHandle(HttpResponseDomain.class)
 abstract class HttpResponseHandle implements UnmovableHttpResponse {
   private final HttpStatus status;
-  private final ByteInputStream bodyStream;
+  private final MovableByteInputStream bodyStream;
 
   HttpResponseHandle(HttpStatus status, InputStream body) {
     this.status = status;
@@ -37,8 +38,9 @@ abstract class HttpResponseHandle implements UnmovableHttpResponse {
     return this.status;
   }
 
+  @MapperOfMoving
   @Override
-  public ByteInputStream bodyStream() {
+  public MovableByteInputStream bodyStream() {
     return bodyStream;
   }
 }

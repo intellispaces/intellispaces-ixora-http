@@ -8,16 +8,16 @@ import intellispaces.ixora.http.exception.HttpException;
 import intellispaces.ixora.system.OutboundModulePortDomain;
 
 @Domain("8f8f05c6-18be-4275-87ea-c6384d33cbe3")
-public interface HttpClientPortDomain extends OutboundModulePortDomain {
+public interface DedicatedHttpPortDomain extends OutboundModulePortDomain {
 
   @Channel("57905f2f-acdb-42be-81a9-daf5d1a27104")
   OutboundModulePortDomain asOutboundModulePort();
 
   /**
-   * Destination server address.
+   * Destination server address (IP address + port number or hostname + port number).
    */
   @Channel("a300f5c5-a9c2-4d34-9d89-709f60b39c63")
-  String server();
+  String serverAddress();
 
   /**
    * Destination server port.

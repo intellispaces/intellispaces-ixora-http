@@ -2,6 +2,7 @@ package intellispaces.ixora.http.test;
 
 import com.sun.net.httpserver.HttpServer;
 import intellispaces.common.base.collection.ArraysFunctions;
+import intellispaces.framework.core.object.ObjectFunctions;
 import intellispaces.ixora.http.HttpMethods;
 import intellispaces.ixora.http.HttpRequest;
 import intellispaces.ixora.http.HttpRequests;
@@ -15,7 +16,6 @@ import org.assertj.core.api.Fail;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
-import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 
 import static org.assertj.core.api.Assertions.assertThat;
@@ -25,11 +25,12 @@ import static org.assertj.core.api.Assertions.assertThat;
  */
 public class OutboundHttpPortTest {
   private static final String TEST_ADDRESS = "http://localhost";
-  private static final String HELLO_ENDPOINT = "/api/hello";
+  private static final String HELLO_ENDPOINT = "/hello";
   private static final String HELLO_RESPONSE = "Hello!";
 
   public void testHello(MovableOutboundHttpPort port) {
     HttpServer httpServer = null;
+    HttpResponse response = null;
     try {
       // Given
       httpServer = createServer();
@@ -38,7 +39,7 @@ public class OutboundHttpPortTest {
       HttpRequest request = HttpRequests.get(HttpMethods.get(), TEST_ADDRESS + HELLO_ENDPOINT);
 
       // When
-      HttpResponse response = port.exchange(request);
+      response = port.exchange(request);
 
       // Then
       HttpStatus status = response.status();
@@ -49,6 +50,7 @@ public class OutboundHttpPortTest {
     } catch (IOException | HttpException e) {
       Fail.fail("Unexpected exception", e);
     } finally {
+      ObjectFunctions.releaseSilently(response);
       if (httpServer != null) {
         httpServer.stop(0);
       }

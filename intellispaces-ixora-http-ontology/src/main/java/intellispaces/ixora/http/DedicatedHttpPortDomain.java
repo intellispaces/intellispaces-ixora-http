@@ -13,17 +13,18 @@ public interface DedicatedHttpPortDomain extends OutboundModulePortDomain {
   @Channel("57905f2f-acdb-42be-81a9-daf5d1a27104")
   OutboundModulePortDomain asOutboundModulePort();
 
-  /**
-   * Destination server address (IP address + port number or hostname + port number).
-   */
   @Channel("a300f5c5-a9c2-4d34-9d89-709f60b39c63")
-  String serverAddress();
+  String baseUrl();
 
-  /**
-   * Destination server port.
-   */
-  @Channel("b6d40ba5-3582-4e32-bb72-62bfd7e7a0eb")
-  Integer port();
+  @Channel(
+      value = "f525865c-e71d-4150-91d2-6639548ae5aa",
+      name = "HttpClientExchangeSimpleChannel",
+      allowedTraverse = TraverseTypes.MappingOfMoving
+  )
+  HttpResponseDomain exchange(
+      String endpoint,
+      HttpMethodDomain method
+  ) throws HttpException;
 
   @Channel(
       value = "6d0d1b6b-e887-4a7e-993d-c278e9d94e5d",

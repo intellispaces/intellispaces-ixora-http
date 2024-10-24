@@ -3,6 +3,9 @@ package intellispaces.ixora.http;
 import intellispaces.framework.core.annotation.Channel;
 import intellispaces.framework.core.annotation.Domain;
 
+/**
+ * Abstract HTTP request.
+ */
 @Domain("7424475c-e034-47f7-9627-5ca8845867c9")
 public interface HttpRequestDomain extends HttpMessageDomain {
 

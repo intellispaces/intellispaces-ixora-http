@@ -2,6 +2,7 @@ package intellispaces.ixora.http;
 
 import intellispaces.framework.core.annotation.Channel;
 import intellispaces.framework.core.annotation.Domain;
+import intellispaces.framework.core.traverse.TraverseTypes;
 import intellispaces.ixora.system.InboundModulePortDomain;
 
 /**
@@ -21,4 +22,10 @@ public interface InboundHttpPortDomain extends HttpPortDomain, InboundModulePort
    */
   @Channel("71693529-9c92-4a05-bab0-2d9a378ba9ab")
   Integer portNumber();
+
+  @Channel(value = "c64f254e-75c1-42e7-929f-b1bf0c6314d1", allowedTraverse = TraverseTypes.Moving)
+  InboundHttpPortDomain open();
+
+  @Channel(value = "4accdb1d-7c42-441b-8b3b-fe2da28d8c96", allowedTraverse = TraverseTypes.Moving)
+  InboundHttpPortDomain close();
 }

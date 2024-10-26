@@ -19,4 +19,8 @@ public interface HttpResponses {
   static HttpResponse get(HttpStatus status, byte[] body) {
     return new HttpResponseHandleImpl(status, body);
   }
+
+  static HttpResponse ok(String body) {
+    return get(HttpStatuses.ok(), body);
+  }
 }

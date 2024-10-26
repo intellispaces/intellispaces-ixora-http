@@ -7,7 +7,7 @@
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>intellispaces-ixora-http</artifactId>
+    <artifactId>intellispaces-ixora-http-test-ontology</artifactId>
     <packaging>jar</packaging>
 	
     <build>
@@ -31,32 +31,14 @@
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
-            <groupId>intellispaces-ixora</groupId>
-            <artifactId>intellispaces-ixora-internet</artifactId>
+            <groupId>intellispaces-framework</groupId>
+            <artifactId>intellispaces-framework-core</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
             <groupId>intellispaces-ixora</groupId>
-            <artifactId>intellispaces-ixora-data</artifactId>
+            <artifactId>intellispaces-ixora-system-ontology</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
-        <!-- Testing -->
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-api</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.assertj</groupId>
-            <artifactId>assertj-core</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.mockito</groupId>
-            <artifactId>mockito-core</artifactId>
         </dependency>
     </dependencies>
 </project>

@@ -1,8 +1,7 @@
 package intellispaces.ixora.http;
 
-import intellispaces.framework.core.IntellispacesFramework;
-import intellispaces.framework.core.annotation.Preprocessing;
-import intellispaces.framework.core.system.Modules;
+import intellispaces.jaquarius.annotation.Preprocessing;
+import intellispaces.jaquarius.system.Modules;
 import intellispaces.ixora.internet.JoinUrlGuideImpl;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -21,7 +20,7 @@ public class DedicatedHttpPortHandleTest {
 
   @BeforeEach
   public void init() {
-    IntellispacesFramework.loadModule(JoinUrlGuideImpl.class);
+    Modules.get(JoinUrlGuideImpl.class).start();
   }
 
   @AfterEach

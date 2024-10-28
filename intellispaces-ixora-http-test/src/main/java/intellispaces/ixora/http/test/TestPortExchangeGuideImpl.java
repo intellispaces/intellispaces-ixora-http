@@ -1,6 +1,6 @@
 package intellispaces.ixora.http.test;
 
-import intellispaces.framework.core.annotation.Guide;
+import intellispaces.jaquarius.annotation.Guide;
 import intellispaces.ixora.http.HttpRequest;
 import intellispaces.ixora.http.HttpResponse;
 import intellispaces.ixora.http.HttpResponses;

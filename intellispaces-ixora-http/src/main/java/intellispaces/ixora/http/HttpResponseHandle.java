@@ -2,9 +2,9 @@ package intellispaces.ixora.http;
 
 import intellispaces.common.base.collection.ArraysFunctions;
 import intellispaces.common.base.text.TextFunctions;
-import intellispaces.framework.core.annotation.Mapper;
-import intellispaces.framework.core.annotation.MapperOfMoving;
-import intellispaces.framework.core.annotation.ObjectHandle;
+import intellispaces.jaquarius.annotation.Mapper;
+import intellispaces.jaquarius.annotation.MapperOfMoving;
+import intellispaces.jaquarius.annotation.ObjectHandle;
 import intellispaces.ixora.data.datastream.DataStreams;
 import intellispaces.ixora.data.datastream.MovableByteInputStream;
 

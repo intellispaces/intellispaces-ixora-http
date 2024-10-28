@@ -1,6 +1,6 @@
 package intellispaces.ixora.http.test;
 
-import intellispaces.framework.core.annotation.Channel;
+import intellispaces.jaquarius.annotation.Channel;
 import intellispaces.ixora.http.HttpPortExchangeChannel;
 import intellispaces.ixora.http.HttpRequestDomain;
 import intellispaces.ixora.http.HttpResponseDomain;

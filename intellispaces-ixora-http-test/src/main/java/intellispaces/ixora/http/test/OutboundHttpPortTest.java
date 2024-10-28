@@ -2,7 +2,7 @@ package intellispaces.ixora.http.test;
 
 import com.sun.net.httpserver.HttpServer;
 import intellispaces.common.base.collection.ArraysFunctions;
-import intellispaces.framework.core.object.ObjectFunctions;
+import intellispaces.jaquarius.object.ObjectFunctions;
 import intellispaces.ixora.http.HttpMethods;
 import intellispaces.ixora.http.HttpRequest;
 import intellispaces.ixora.http.HttpRequests;

@@ -1,7 +1,7 @@
 package intellispaces.ixora.http;
 
-import intellispaces.framework.core.annotation.Channel;
-import intellispaces.framework.core.annotation.Domain;
+import intellispaces.jaquarius.annotation.Channel;
+import intellispaces.jaquarius.annotation.Domain;
 
 /**
  * Abstract HTTP request.

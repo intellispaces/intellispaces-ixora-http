@@ -1,7 +1,7 @@
 package intellispaces.ixora.http;
 
-import intellispaces.framework.core.annotation.Channel;
-import intellispaces.framework.core.annotation.Domain;
+import intellispaces.jaquarius.annotation.Channel;
+import intellispaces.jaquarius.annotation.Domain;
 
 @Domain("5f96c856-7ac3-407f-89fb-0137e5936fe8")
 public interface HttpResponseDomain extends HttpMessageDomain {

@@ -1,7 +1,6 @@
 package intellispaces.ixora.http.test;
 
-import intellispaces.framework.core.IntellispacesFramework;
-import intellispaces.framework.core.system.Modules;
+import intellispaces.jaquarius.system.Modules;
 import intellispaces.ixora.http.HttpPortExchangeChannel;
 import intellispaces.ixora.http.MovableInboundHttpPort;
 
@@ -20,7 +19,7 @@ public abstract class AbstractInboundHttpPortTest {
   );
 
   public void init() {
-    IntellispacesFramework.loadModule(TestPortExchangeGuideImpl.class);
+    Modules.get(TestPortExchangeGuideImpl.class).start();
   }
 
   public void deinit() {

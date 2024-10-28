@@ -1,8 +1,8 @@
 package intellispaces.ixora.http;
 
-import intellispaces.framework.core.annotation.Channel;
-import intellispaces.framework.core.annotation.Domain;
-import intellispaces.framework.core.annotation.Movable;
+import intellispaces.jaquarius.annotation.Channel;
+import intellispaces.jaquarius.annotation.Domain;
+import intellispaces.jaquarius.annotation.Movable;
 import intellispaces.ixora.data.datastream.ByteInputStreamDomain;
 
 @Domain("0c5ed260-ccf7-4b7a-970c-12a696a99dbc")

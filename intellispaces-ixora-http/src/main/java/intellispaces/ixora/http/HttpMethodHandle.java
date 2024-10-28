@@ -1,7 +1,7 @@
 package intellispaces.ixora.http;
 
-import intellispaces.framework.core.annotation.Mapper;
-import intellispaces.framework.core.annotation.ObjectHandle;
+import intellispaces.jaquarius.annotation.Mapper;
+import intellispaces.jaquarius.annotation.ObjectHandle;
 
 @ObjectHandle(HttpMethodDomain.class)
 abstract class HttpMethodHandle implements UnmovableHttpMethod {

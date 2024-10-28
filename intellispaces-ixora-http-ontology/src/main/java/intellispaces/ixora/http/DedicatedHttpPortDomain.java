@@ -1,8 +1,8 @@
 package intellispaces.ixora.http;
 
-import intellispaces.framework.core.annotation.Channel;
-import intellispaces.framework.core.annotation.Domain;
-import intellispaces.framework.core.traverse.TraverseTypes;
+import intellispaces.jaquarius.annotation.Channel;
+import intellispaces.jaquarius.annotation.Domain;
+import intellispaces.jaquarius.traverse.TraverseTypes;
 import intellispaces.ixora.data.datastream.InputDataStreamDomain;
 import intellispaces.ixora.http.exception.HttpException;
 import intellispaces.ixora.system.OutboundModulePortDomain;

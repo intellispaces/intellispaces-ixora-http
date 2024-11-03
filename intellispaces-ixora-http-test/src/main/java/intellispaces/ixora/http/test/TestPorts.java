@@ -4,7 +4,7 @@ import intellispaces.ixora.http.MovableInboundHttpPort;
 
 public interface TestPorts {
 
-  static MovableTestPort get(MovableInboundHttpPort port) {
-    return new TestPortHandleImpl(port);
+  static MovableTestPort get(MovableInboundHttpPort operativePort) {
+    return new TestPortHandleImpl(operativePort);
   }
 }

@@ -1,8 +1,8 @@
 package intellispaces.ixora.http;
 
+import intellispaces.ixora.internet.JoinUrlGuideImpl;
 import intellispaces.jaquarius.annotation.Preprocessing;
 import intellispaces.jaquarius.system.Modules;
-import intellispaces.ixora.internet.JoinUrlGuideImpl;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -39,13 +39,13 @@ public class DedicatedHttpPortHandleTest {
     HttpResponse response1 = mock(HttpResponse.class);
     when(underlyingPort.exchange(argThat(req -> req != null
         && req.method().name().equals(httpGetMethod.name())
-        && req.requestURI().equals("http:localhost:8080/api/test")))
+        && req.requestURI().toString().equals("http:localhost:8080/api/test")))
     ).thenReturn(response1);
 
     HttpResponse response2 = mock(HttpResponse.class);
     when(underlyingPort.exchange(argThat(req -> req != null
         && req.method().name().equals(httpPostMethod.name())
-        && req.requestURI().equals("http:localhost:8080/api/test")))
+        && req.requestURI().toString().equals("http:localhost:8080/api/test")))
     ).thenReturn(response2);
 
     String baseUrl = "http:localhost:8080/api";

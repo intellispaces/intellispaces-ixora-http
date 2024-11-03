@@ -1,9 +1,9 @@
 package intellispaces.ixora.http.test;
 
+import intellispaces.ixora.http.InboundHttpPortDomain;
 import intellispaces.jaquarius.annotation.Channel;
 import intellispaces.jaquarius.annotation.Domain;
 import intellispaces.jaquarius.traverse.TraverseTypes;
-import intellispaces.ixora.http.InboundHttpPortDomain;
 
 @Domain("d0d4f50d-9042-4970-a523-7af9d6a1a8ff")
 public interface TestPortDomain extends InboundHttpPortDomain {

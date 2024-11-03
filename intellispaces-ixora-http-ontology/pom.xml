@@ -32,6 +32,11 @@
         </dependency>
         <dependency>
             <groupId>intellispaces-ixora</groupId>
+            <artifactId>intellispaces-ixora-internet-ontology</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>intellispaces-ixora</groupId>
             <artifactId>intellispaces-ixora-system-ontology</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>

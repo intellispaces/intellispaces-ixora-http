@@ -1,9 +1,9 @@
 package intellispaces.ixora.http;
 
+import intellispaces.ixora.system.InboundModulePortDomain;
 import intellispaces.jaquarius.annotation.Channel;
 import intellispaces.jaquarius.annotation.Domain;
 import intellispaces.jaquarius.traverse.TraverseTypes;
-import intellispaces.ixora.system.InboundModulePortDomain;
 
 /**
  * Inbound HTTP module port.

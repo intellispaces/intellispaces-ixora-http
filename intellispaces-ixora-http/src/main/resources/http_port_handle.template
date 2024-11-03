@@ -1,0 +1,45 @@
+package {{$packageName}};
+
+{{for importedClass : $importedClasses}}
+import {{$importedClass}};
+{{end}}
+
+/**
+ * Logical HTTP port handle for {@link {{$sourceSimpleName}}}.<p/>
+ *
+ * This class was generated automatically. Don't try to change it.
+ */
+@ObjectHandle({{$sourceSimpleName}}.class)
+{{$generatedAnnotation}}
+public abstract class {{$classSimpleName}} implements {{$movableHandleSimpleName}} {
+  private final MovableInboundHttpPort operativePort;
+  private final Reference<?> reference = HttpPortEngines.get().bridge(this, {{$sourceSimpleName}}.class);
+
+  public {{$classSimpleName}}(MovableInboundHttpPort operativePort) {
+    this.operativePort = operativePort;
+  }
+
+  public MovableInboundHttpPort getOperativePort() {
+    return operativePort;
+  }
+
+  @Mover
+  @Override
+  public {{$movableHandleSimpleName}} open() {
+    operativePort.open();
+    return this;
+  }
+
+  @Mover
+  @Override
+  public {{$movableHandleSimpleName}} close() {
+    operativePort.close();
+    return this;
+  }
+
+  @Override
+  @MapperOfMoving
+  public HttpResponse exchange(HttpRequest request) throws HttpException {
+    return HttpPortEngines.get().exchange(reference, request);
+  }
+}

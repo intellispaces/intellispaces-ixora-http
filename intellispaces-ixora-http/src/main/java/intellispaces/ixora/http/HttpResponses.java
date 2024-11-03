@@ -23,4 +23,12 @@ public interface HttpResponses {
   static HttpResponse ok(String body) {
     return get(HttpStatuses.ok(), body);
   }
+
+  static HttpResponse notFound() {
+    return get(HttpStatuses.notFound());
+  }
+
+  static HttpResponse notFound(String body) {
+    return get(HttpStatuses.notFound(), body);
+  }
 }

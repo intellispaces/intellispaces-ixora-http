@@ -1,10 +1,10 @@
 package intellispaces.ixora.http;
 
+import intellispaces.ixora.http.exception.HttpException;
+import intellispaces.ixora.system.ModulePortDomain;
 import intellispaces.jaquarius.annotation.Channel;
 import intellispaces.jaquarius.annotation.Domain;
 import intellispaces.jaquarius.traverse.TraverseTypes;
-import intellispaces.ixora.http.exception.HttpException;
-import intellispaces.ixora.system.ModulePortDomain;
 
 /**
  * HTTP module port.

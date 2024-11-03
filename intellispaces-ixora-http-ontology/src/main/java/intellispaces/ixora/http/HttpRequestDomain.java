@@ -1,5 +1,6 @@
 package intellispaces.ixora.http;
 
+import intellispaces.ixora.internet.UriDomain;
 import intellispaces.jaquarius.annotation.Channel;
 import intellispaces.jaquarius.annotation.Domain;
 
@@ -13,7 +14,7 @@ public interface HttpRequestDomain extends HttpMessageDomain {
   HttpMessageDomain asHttpMessage();
 
   @Channel("35fd9d51-2aca-4ddd-aee3-559f513fa82c")
-  String requestURI();
+  UriDomain requestURI();
 
   @Channel("76494aaf-99bd-42df-8bf5-3a1a28b137d7")
   HttpMethodDomain method();

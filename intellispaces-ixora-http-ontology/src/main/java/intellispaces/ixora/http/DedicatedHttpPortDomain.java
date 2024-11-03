@@ -1,11 +1,11 @@
 package intellispaces.ixora.http;
 
-import intellispaces.jaquarius.annotation.Channel;
-import intellispaces.jaquarius.annotation.Domain;
-import intellispaces.jaquarius.traverse.TraverseTypes;
 import intellispaces.ixora.data.datastream.InputDataStreamDomain;
 import intellispaces.ixora.http.exception.HttpException;
 import intellispaces.ixora.system.OutboundModulePortDomain;
+import intellispaces.jaquarius.annotation.Channel;
+import intellispaces.jaquarius.annotation.Domain;
+import intellispaces.jaquarius.traverse.TraverseTypes;
 
 @Domain("8f8f05c6-18be-4275-87ea-c6384d33cbe3")
 public interface DedicatedHttpPortDomain extends OutboundModulePortDomain {

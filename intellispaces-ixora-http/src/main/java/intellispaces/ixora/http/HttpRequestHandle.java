@@ -1,19 +1,20 @@
 package intellispaces.ixora.http;
 
-import intellispaces.jaquarius.annotation.Mapper;
-import intellispaces.jaquarius.annotation.ObjectHandle;
 import intellispaces.ixora.data.datastream.DataStreams;
 import intellispaces.ixora.data.datastream.MovableByteInputStream;
+import intellispaces.ixora.internet.Uri;
+import intellispaces.jaquarius.annotation.Mapper;
+import intellispaces.jaquarius.annotation.ObjectHandle;
 
 import java.io.InputStream;
 
 @ObjectHandle(HttpRequestDomain.class)
 abstract class HttpRequestHandle implements UnmovableHttpRequest {
   private final HttpMethod method;
-  private final String requestURI;
+  private final Uri requestURI;
   private final MovableByteInputStream bodyStream;
 
-  HttpRequestHandle(HttpMethod method, String requestURI) {
+  HttpRequestHandle(HttpMethod method, Uri requestURI) {
     this.method = method;
     this.requestURI = requestURI;
     this.bodyStream = DataStreams.get(InputStream.nullInputStream());
@@ -21,7 +22,7 @@ abstract class HttpRequestHandle implements UnmovableHttpRequest {
 
   @Mapper
   @Override
-  public String requestURI() {
+  public Uri requestURI() {
     return this.requestURI;
   }
 

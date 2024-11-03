@@ -1,9 +1,9 @@
 package intellispaces.ixora.http.test;
 
-import intellispaces.jaquarius.annotation.Guide;
 import intellispaces.ixora.http.HttpRequest;
 import intellispaces.ixora.http.HttpResponse;
 import intellispaces.ixora.http.HttpResponses;
+import intellispaces.jaquarius.annotation.Guide;
 
 @Guide
 public class TestPortExchangeGuideImpl implements TestPortExchangeGuide {

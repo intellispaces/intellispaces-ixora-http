@@ -1,8 +1,8 @@
 package intellispaces.ixora.http;
 
+import intellispaces.ixora.system.OutboundModulePortDomain;
 import intellispaces.jaquarius.annotation.Channel;
 import intellispaces.jaquarius.annotation.Domain;
-import intellispaces.ixora.system.OutboundModulePortDomain;
 
 /**
  * Outbound HTTP module port.

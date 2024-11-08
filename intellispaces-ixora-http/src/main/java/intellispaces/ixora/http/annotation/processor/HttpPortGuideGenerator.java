@@ -1,9 +1,9 @@
 package intellispaces.ixora.http.annotation.processor;
 
 import intellispaces.common.annotationprocessor.context.AnnotationProcessingContext;
-import intellispaces.common.base.exception.NotImplementedException;
-import intellispaces.common.base.exception.UnexpectedViolationException;
-import intellispaces.common.base.text.TextFunctions;
+import intellispaces.common.base.exception.UnexpectedExceptions;
+import intellispaces.common.base.exception.NotImplementedExceptions;
+import intellispaces.common.base.text.StringFunctions;
 import intellispaces.common.javastatement.customtype.CustomType;
 import intellispaces.common.javastatement.method.MethodParam;
 import intellispaces.common.javastatement.method.MethodSignatureDeclarations;
@@ -118,9 +118,9 @@ public class HttpPortGuideGenerator extends AbstractGenerator {
   private String buildGuideMethodName(MethodStatement method) {
     var sb = new StringBuilder();
     sb.append("exchange");
-    sb.append(TextFunctions.capitalizeFirstLetter(method.name()));
+    sb.append(StringFunctions.capitalizeFirstLetter(method.name()));
     for (MethodParam param : method.params()) {
-      sb.append(TextFunctions.capitalizeFirstLetter(param.name()));
+      sb.append(StringFunctions.capitalizeFirstLetter(param.name()));
     }
     return sb.toString();
   }
@@ -152,7 +152,7 @@ public class HttpPortGuideGenerator extends AbstractGenerator {
   private void appendMethodArgumentExtractorDeclaration(StringBuilder sb, MethodParam param) {
     Function<MethodParam, String> mapper = getMethodArgumentExtractorDeclarationMapper(param);
     if (mapper == null) {
-      throw UnexpectedViolationException.withMessage("Could not find method argument extractor declaration napper");
+      throw UnexpectedExceptions.withMessage("Could not find method argument extractor declaration napper");
     }
     sb.append(mapper.apply(param));
   }
@@ -160,7 +160,7 @@ public class HttpPortGuideGenerator extends AbstractGenerator {
   private void appendMethodArgumentValueDeclaration(StringBuilder sb, MethodParam param) {
     Function<MethodParam, String> mapper = getMethodArgumentValueDeclarationMapper(param);
     if (mapper == null) {
-      throw UnexpectedViolationException.withMessage("Could not find method argument declaration napper");
+      throw UnexpectedExceptions.withMessage("Could not find method argument declaration napper");
     }
     sb.append(mapper.apply(param));
   }
@@ -206,13 +206,13 @@ public class HttpPortGuideGenerator extends AbstractGenerator {
     sb.append("\");\n");
     sb.append("if (").append(valuesVariable).append(".size() == 0) {\n");
     sb.append("  throw ")
-        .append(context.addToImportAndGetSimpleName(UnexpectedViolationException.class))
+        .append(context.addToImportAndGetSimpleName(UnexpectedExceptions.class))
         .append(".withMessage(\"Query parameter '")
         .append(queryParamName)
         .append("' was not found\");\n");
     sb.append("} else if (").append(valuesVariable).append(".size() > 1) {\n");
     sb.append("  throw ")
-        .append(context.addToImportAndGetSimpleName(UnexpectedViolationException.class))
+        .append(context.addToImportAndGetSimpleName(UnexpectedExceptions.class))
         .append(".withMessage(\"Multiple query parameter '")
         .append(queryParamName)
         .append("' values found\");\n");
@@ -230,7 +230,7 @@ public class HttpPortGuideGenerator extends AbstractGenerator {
       sb.append(valueVariable);
       sb.append(";\n");
     } else {
-      throw NotImplementedException.withCode("14ruHA");
+      throw NotImplementedExceptions.withCode("14ruHA");
     }
     return sb.toString();
   }

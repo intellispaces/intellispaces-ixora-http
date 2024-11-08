@@ -1,6 +1,6 @@
 package intellispaces.ixora.http;
 
-import intellispaces.common.base.exception.UnexpectedViolationException;
+import intellispaces.common.base.exception.UnexpectedExceptions;
 
 public final class HttpStatuses {
 
@@ -67,7 +67,7 @@ public final class HttpStatuses {
       case CODE_NOT_ACCEPTABLE -> STATUS_NOT_ACCEPTABLE;
       case CODE_INTERNAL_SERVER_ERROR -> STATUS_INTERNAL_SERVER_ERROR;
       default -> {
-        throw UnexpectedViolationException.withMessage("Unsupported HTTP status code: {}", code);
+        throw UnexpectedExceptions.withMessage("Unsupported HTTP status code: {}", code);
       }
     };
   }

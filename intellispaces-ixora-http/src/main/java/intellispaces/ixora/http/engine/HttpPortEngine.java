@@ -1,6 +1,6 @@
 package intellispaces.ixora.http.engine;
 
-import intellispaces.common.base.type.Reference;
+import intellispaces.common.base.data.Reference;
 import intellispaces.ixora.http.HttpRequest;
 import intellispaces.ixora.http.HttpResponse;
 

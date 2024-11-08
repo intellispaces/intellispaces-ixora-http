@@ -1,7 +1,7 @@
 package intellispaces.ixora.http;
 
 import intellispaces.common.base.collection.ArraysFunctions;
-import intellispaces.common.base.text.TextFunctions;
+import intellispaces.common.base.text.StringFunctions;
 import intellispaces.ixora.data.datastream.DataStreams;
 import intellispaces.ixora.data.datastream.MovableByteInputStream;
 import intellispaces.jaquarius.annotation.Mapper;
@@ -21,7 +21,7 @@ abstract class HttpResponseHandle implements UnmovableHttpResponse {
   }
 
   HttpResponseHandle(HttpStatus status, String body) {
-    this(status, TextFunctions.stringToInputStream(body));
+    this(status, StringFunctions.stringToInputStream(body));
   }
 
   HttpResponseHandle(HttpStatus status, byte[] body) {

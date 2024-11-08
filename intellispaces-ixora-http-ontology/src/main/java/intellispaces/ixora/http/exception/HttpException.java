@@ -4,19 +4,11 @@ import intellispaces.jaquarius.exception.TraverseException;
 
 public class HttpException extends TraverseException {
 
-  public HttpException(String messageTemplate, Object... messageParams) {
-    super(messageTemplate, messageParams);
+  public HttpException(String message) {
+    super(message);
   }
 
-  public HttpException(Throwable cause, String messageTemplate, Object... messageParams) {
-    super(cause, messageTemplate, messageParams);
-  }
-
-  public static HttpException withMessage(String messageTemplate, Object... messageParams) {
-    return new HttpException(null, messageTemplate, messageParams);
-  }
-
-  public static HttpException withCauseAndMessage(Throwable cause, String messageTemplate, Object... messageParams) {
-    return new HttpException(cause, messageTemplate, messageParams);
+  public HttpException(String message, Throwable cause) {
+    super(message, cause);
   }
 }

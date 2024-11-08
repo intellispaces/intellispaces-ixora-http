@@ -1,6 +1,6 @@
 package intellispaces.ixora.http;
 
-import intellispaces.common.base.exception.UnexpectedViolationException;
+import intellispaces.common.base.exception.UnexpectedExceptions;
 
 public final class HttpMethods {
 
@@ -22,7 +22,7 @@ public final class HttpMethods {
     } else if (TRACE.name().equals(name)) {
       return TRACE;
     } else {
-      throw UnexpectedViolationException.withMessage("Unsupported HTTP method name {0}", name);
+      throw UnexpectedExceptions.withMessage("Unsupported HTTP method name {0}", name);
     }
   }
 

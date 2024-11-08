@@ -1,7 +1,7 @@
 package intellispaces.ixora.http.common;
 
-import intellispaces.common.base.text.TextFunctions;
-import intellispaces.common.base.type.TypeFunctions;
+import intellispaces.common.base.text.StringFunctions;
+import intellispaces.common.base.type.ClassNameFunctions;
 import intellispaces.common.javastatement.customtype.CustomType;
 import intellispaces.common.javastatement.method.MethodParam;
 import intellispaces.common.javastatement.method.MethodStatement;
@@ -14,7 +14,7 @@ import java.util.List;
 public interface HttpNameConventionFunctions {
 
   static String getPortHandleCanonicalName(CustomType httpPortDomain) {
-    return TextFunctions.replaceTailOrElseThrow(httpPortDomain.canonicalName(), "Domain", "Handle");
+    return StringFunctions.replaceTailOrElseThrow(httpPortDomain.canonicalName(), "Domain", "Handle");
   }
 
   static String getPortHandleImplCanonicalName(CustomType httpPortDomain) {
@@ -22,11 +22,11 @@ public interface HttpNameConventionFunctions {
   }
 
   static String getPortProviderCanonicalName(CustomType httpPortDomain) {
-    return TextFunctions.replaceTailOrElseThrow(httpPortDomain.canonicalName(), "Domain", "s");
+    return StringFunctions.replaceTailOrElseThrow(httpPortDomain.canonicalName(), "Domain", "s");
   }
 
   static String getPortGuideCanonicalName(CustomType ontology) {
-    return TextFunctions.replaceTailOrElseThrow(ontology.canonicalName(), "Ontology", "Guide");
+    return StringFunctions.replaceTailOrElseThrow(ontology.canonicalName(), "Ontology", "Guide");
   }
 
   static String getPortExchangeChannelCanonicalName(CustomType httpPortDomain) {
@@ -41,14 +41,14 @@ public interface HttpNameConventionFunctions {
   ) {
     var sb = new StringBuilder();
 
-    String packageName = TypeFunctions.getPackageName(ontology.canonicalName());
-    if (TextFunctions.isNotBlank(packageName)) {
+    String packageName = ClassNameFunctions.getPackageName(ontology.canonicalName());
+    if (StringFunctions.isNotBlank(packageName)) {
       sb.append(packageName).append(".");
     }
-    sb.append(TextFunctions.removeTailOrElseThrow(portDomain.simpleName(), "Domain"));
-    sb.append(TextFunctions.capitalizeFirstLetter(channelMethod.name()));
+    sb.append(StringFunctions.removeTailOrElseThrow(portDomain.simpleName(), "Domain"));
+    sb.append(StringFunctions.capitalizeFirstLetter(channelMethod.name()));
     for (MethodParam param : channelMethod.params()) {
-      sb.append(TextFunctions.capitalizeFirstLetter(param.name()));
+      sb.append(StringFunctions.capitalizeFirstLetter(param.name()));
     }
     sb.append("ExchangeChannel");
     return sb.toString();
@@ -58,10 +58,10 @@ public interface HttpNameConventionFunctions {
       CustomType portDomain, CustomType ontology, MethodStatement channelMethod
   ) {
     var sb = new StringBuilder();
-    sb.append(TextFunctions.removeTailOrElseThrow(portDomain.canonicalName(), "Domain"));
-    sb.append(TextFunctions.capitalizeFirstLetter(channelMethod.name()));
+    sb.append(StringFunctions.removeTailOrElseThrow(portDomain.canonicalName(), "Domain"));
+    sb.append(StringFunctions.capitalizeFirstLetter(channelMethod.name()));
     for (MethodParam param : channelMethod.params()) {
-      sb.append(TextFunctions.capitalizeFirstLetter(param.name()));
+      sb.append(StringFunctions.capitalizeFirstLetter(param.name()));
     }
     sb.append("ExchangeChannel");
     return sb.toString();

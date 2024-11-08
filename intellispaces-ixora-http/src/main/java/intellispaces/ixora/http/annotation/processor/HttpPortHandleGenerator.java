@@ -1,7 +1,7 @@
 package intellispaces.ixora.http.annotation.processor;
 
 import intellispaces.common.annotationprocessor.context.AnnotationProcessingContext;
-import intellispaces.common.base.type.Reference;
+import intellispaces.common.base.data.Reference;
 import intellispaces.common.javastatement.customtype.CustomType;
 import intellispaces.ixora.http.HttpRequest;
 import intellispaces.ixora.http.HttpResponse;

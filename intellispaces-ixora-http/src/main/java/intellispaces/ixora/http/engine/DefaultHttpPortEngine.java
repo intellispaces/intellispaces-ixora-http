@@ -1,10 +1,10 @@
 package intellispaces.ixora.http.engine;
 
 import intellispaces.common.action.conditional.ConditionalActions;
-import intellispaces.common.base.exception.NotImplementedException;
+import intellispaces.common.base.data.Reference;
+import intellispaces.common.base.data.References;
+import intellispaces.common.base.exception.NotImplementedExceptions;
 import intellispaces.common.base.type.Classes;
-import intellispaces.common.base.type.Reference;
-import intellispaces.common.base.type.References;
 import intellispaces.ixora.http.HttpRequest;
 import intellispaces.ixora.http.HttpResponse;
 import intellispaces.ixora.http.pathtree.FinalExecutor;
@@ -36,7 +36,7 @@ public class DefaultHttpPortEngine implements HttpPortEngine {
 
     FinalExecutor executor = PathTreeFunctions.findExecution(request, rootSegments);
     if (executor == null) {
-      throw NotImplementedException.withCode("YNScfA");
+      throw NotImplementedExceptions.withCode("YNScfA");
     }
     return executor.exchange(descriptor.port(), request);
   }

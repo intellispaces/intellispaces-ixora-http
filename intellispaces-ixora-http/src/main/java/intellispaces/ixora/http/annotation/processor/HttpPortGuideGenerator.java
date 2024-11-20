@@ -1,9 +1,6 @@
 package intellispaces.ixora.http.annotation.processor;
 
 import intellispaces.common.annotationprocessor.context.AnnotationProcessingContext;
-import intellispaces.common.base.exception.UnexpectedExceptions;
-import intellispaces.common.base.exception.NotImplementedExceptions;
-import intellispaces.common.base.text.StringFunctions;
 import intellispaces.common.javastatement.customtype.CustomType;
 import intellispaces.common.javastatement.method.MethodParam;
 import intellispaces.common.javastatement.method.MethodSignatureDeclarations;
@@ -18,6 +15,9 @@ import intellispaces.jaquarius.annotation.AutoGuide;
 import intellispaces.jaquarius.annotation.MapperOfMoving;
 import intellispaces.jaquarius.annotation.processor.AbstractGenerator;
 import intellispaces.jaquarius.object.ObjectFunctions;
+import tech.intellispaces.entity.exception.NotImplementedExceptions;
+import tech.intellispaces.entity.exception.UnexpectedExceptions;
+import tech.intellispaces.entity.text.StringFunctions;
 
 import javax.annotation.processing.RoundEnvironment;
 import java.util.ArrayList;

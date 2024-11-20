@@ -1,12 +1,12 @@
 package intellispaces.ixora.http;
 
-import intellispaces.common.base.collection.ArraysFunctions;
-import intellispaces.common.base.text.StringFunctions;
 import intellispaces.ixora.data.datastream.DataStreams;
 import intellispaces.ixora.data.datastream.MovableByteInputStream;
 import intellispaces.jaquarius.annotation.Mapper;
 import intellispaces.jaquarius.annotation.MapperOfMoving;
 import intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.entity.collection.ArraysFunctions;
+import tech.intellispaces.entity.text.StringFunctions;
 
 import java.io.InputStream;
 

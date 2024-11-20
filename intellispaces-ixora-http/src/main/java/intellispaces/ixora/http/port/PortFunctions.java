@@ -1,14 +1,13 @@
 package intellispaces.ixora.http.port;
 
-import intellispaces.common.base.type.ClassFunctions;
 import intellispaces.common.javastatement.customtype.CustomType;
 import intellispaces.common.javastatement.method.MethodStatement;
 import intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import intellispaces.jaquarius.channel.Channel1;
+import tech.intellispaces.entity.exception.UnexpectedExceptions;
+import tech.intellispaces.entity.type.ClassFunctions;
 
 import java.util.Optional;
-
-import intellispaces.common.base.exception.UnexpectedExceptions;
 
 public interface PortFunctions {
 

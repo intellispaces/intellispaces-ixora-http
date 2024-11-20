@@ -1,7 +1,6 @@
 package intellispaces.ixora.http.annotation.processor;
 
 import intellispaces.common.annotationprocessor.context.AnnotationProcessingContext;
-import intellispaces.common.base.data.Reference;
 import intellispaces.common.javastatement.customtype.CustomType;
 import intellispaces.ixora.http.HttpRequest;
 import intellispaces.ixora.http.HttpResponse;
@@ -14,6 +13,7 @@ import intellispaces.jaquarius.annotation.Mover;
 import intellispaces.jaquarius.annotation.ObjectHandle;
 import intellispaces.jaquarius.annotation.processor.AbstractGenerator;
 import intellispaces.jaquarius.common.NameConventionFunctions;
+import tech.intellispaces.entity.data.Reference;
 
 import javax.annotation.processing.RoundEnvironment;
 import java.util.HashMap;

@@ -1,8 +1,8 @@
 package intellispaces.ixora.http.engine;
 
-import intellispaces.common.base.data.Reference;
 import intellispaces.ixora.http.HttpRequest;
 import intellispaces.ixora.http.HttpResponse;
+import tech.intellispaces.entity.data.Reference;
 
 public interface HttpPortEngine {
 

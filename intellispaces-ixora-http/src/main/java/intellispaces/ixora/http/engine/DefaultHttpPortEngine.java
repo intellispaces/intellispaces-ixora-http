@@ -25,7 +25,7 @@ public class DefaultHttpPortEngine implements HttpPortEngine {
   public HttpResponse exchange(Reference<?> reference, HttpRequest request) {
     var descriptor = (PortDescriptor) reference.get();
 
-    List<PathSegment> rootSegments = ConditionalActions.getAndSetIfAbsentAction(
+    List<PathSegment> rootSegments = ConditionalActions.getOrSetIfAbsentAction(
         PortDescriptor.class, Classes.ofList(PathSegment.class)
     ).execute(
         descriptor,

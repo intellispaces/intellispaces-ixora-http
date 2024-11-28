@@ -11,7 +11,7 @@ import tech.intellispaces.entity.collection.ArraysFunctions;
 import tech.intellispaces.ixora.http.HttpMethods;
 import tech.intellispaces.ixora.http.HttpRequests;
 import tech.intellispaces.ixora.http.exception.HttpException;
-import tech.intellispaces.jaquarius.object.ObjectFunctions;
+import tech.intellispaces.jaquarius.object.ObjectHandleFunctions;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;
@@ -54,7 +54,7 @@ public abstract class OutboundHttpPortTest {
     } catch (IOException | HttpException e) {
       Fail.fail("Unexpected exception", e);
     } finally {
-      ObjectFunctions.releaseSilently(response);
+      ObjectHandleFunctions.releaseSilently(response);
       if (server != null) {
         server.stop(0);
       }

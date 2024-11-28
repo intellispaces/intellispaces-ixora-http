@@ -12,7 +12,7 @@ import tech.intellispaces.ixora.internet.UriToQueryParamGuide;
 import tech.intellispaces.jaquarius.annotation.AutoGuide;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.processor.AbstractGenerator;
-import tech.intellispaces.jaquarius.object.ObjectFunctions;
+import tech.intellispaces.jaquarius.object.ObjectHandleFunctions;
 import tech.intellispaces.java.annotation.context.AnnotationProcessingContext;
 import tech.intellispaces.java.reflection.customtype.CustomType;
 import tech.intellispaces.java.reflection.method.MethodParam;
@@ -107,7 +107,7 @@ public class HttpPortGuideGenerator extends AbstractGenerator {
     sb.append(" ");
     sb.append(buildGuideMethodName(method));
     sb.append("(");
-    sb.append(context.addToImportAndGetSimpleName(ObjectFunctions.getCommonObjectHandleTypename(portDomain)));
+    sb.append(context.addToImportAndGetSimpleName(ObjectHandleFunctions.getCommonObjectHandleTypename(portDomain)));
     sb.append(" port, ");
     sb.append(context.addToImportAndGetSimpleName(HttpRequest.class));
     sb.append(" request) throws ");

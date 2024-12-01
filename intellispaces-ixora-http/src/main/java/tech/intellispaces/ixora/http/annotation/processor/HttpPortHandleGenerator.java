@@ -3,7 +3,7 @@ package tech.intellispaces.ixora.http.annotation.processor;
 import tech.intellispaces.ixora.http.HttpRequest;
 import tech.intellispaces.ixora.http.HttpResponse;
 import tech.intellispaces.ixora.http.MovableInboundHttpPort;
-import tech.intellispaces.entity.data.Reference;
+import tech.intellispaces.entity.reference.Reference;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.ixora.http.engine.HttpPortEngines;
 import tech.intellispaces.ixora.http.exception.HttpException;

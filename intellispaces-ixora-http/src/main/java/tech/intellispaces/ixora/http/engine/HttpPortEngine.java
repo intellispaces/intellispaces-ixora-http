@@ -2,7 +2,7 @@ package tech.intellispaces.ixora.http.engine;
 
 import tech.intellispaces.ixora.http.HttpRequest;
 import tech.intellispaces.ixora.http.HttpResponse;
-import tech.intellispaces.entity.data.Reference;
+import tech.intellispaces.entity.reference.Reference;
 
 public interface HttpPortEngine {
 

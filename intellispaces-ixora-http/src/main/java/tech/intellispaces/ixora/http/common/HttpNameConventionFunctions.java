@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.http.common;
 
-import tech.intellispaces.entity.text.StringFunctions;
-import tech.intellispaces.entity.type.ClassNameFunctions;
+import tech.intellispaces.general.text.StringFunctions;
+import tech.intellispaces.general.type.ClassNameFunctions;
 import tech.intellispaces.ixora.http.HttpRequestDomain;
 import tech.intellispaces.jaquarius.common.NameConventionFunctions;
 import tech.intellispaces.java.reflection.customtype.CustomType;

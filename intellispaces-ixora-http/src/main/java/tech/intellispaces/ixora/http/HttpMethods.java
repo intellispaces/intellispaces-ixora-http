@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.entity.exception.UnexpectedExceptions;
+import tech.intellispaces.general.exception.UnexpectedExceptions;
 
 public final class HttpMethods {
 

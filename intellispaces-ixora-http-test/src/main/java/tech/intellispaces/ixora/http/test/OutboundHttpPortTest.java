@@ -7,7 +7,7 @@ import tech.intellispaces.ixora.http.HttpStatus;
 import tech.intellispaces.ixora.http.MovableOutboundHttpPort;
 import tech.intellispaces.ixora.http.OutboundHttpPort;
 import org.assertj.core.api.Fail;
-import tech.intellispaces.entity.collection.ArraysFunctions;
+import tech.intellispaces.general.collection.ArraysFunctions;
 import tech.intellispaces.ixora.http.HttpMethods;
 import tech.intellispaces.ixora.http.HttpRequests;
 import tech.intellispaces.ixora.http.exception.HttpException;

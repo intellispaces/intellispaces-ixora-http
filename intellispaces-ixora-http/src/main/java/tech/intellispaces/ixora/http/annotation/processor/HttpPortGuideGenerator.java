@@ -2,9 +2,9 @@ package tech.intellispaces.ixora.http.annotation.processor;
 
 import tech.intellispaces.ixora.http.HttpRequest;
 import tech.intellispaces.ixora.http.HttpResponse;
-import tech.intellispaces.entity.exception.NotImplementedExceptions;
-import tech.intellispaces.entity.exception.UnexpectedExceptions;
-import tech.intellispaces.entity.text.StringFunctions;
+import tech.intellispaces.general.exception.NotImplementedExceptions;
+import tech.intellispaces.general.exception.UnexpectedExceptions;
+import tech.intellispaces.general.text.StringFunctions;
 import tech.intellispaces.ixora.http.annotation.QueryParam;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.ixora.http.exception.HttpException;

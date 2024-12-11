@@ -19,11 +19,11 @@ public abstract class AbstractInboundHttpPortTest {
   );
 
   public void init() {
-    Modules.get(TestPortExchangeGuideImpl.class).start();
+    Modules.load(TestPortExchangeGuideImpl.class).start();
   }
 
   public void deinit() {
-    Modules.current().stop();
+    Modules.unload();
   }
 
   public void testHello() throws Exception {

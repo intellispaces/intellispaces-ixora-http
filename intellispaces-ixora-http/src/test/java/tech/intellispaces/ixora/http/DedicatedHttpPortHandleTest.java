@@ -20,12 +20,12 @@ public class DedicatedHttpPortHandleTest {
 
   @BeforeEach
   public void init() {
-    Modules.get(JoinUrlGuideImpl.class).start();
+    Modules.load(JoinUrlGuideImpl.class).start();
   }
 
   @AfterEach
   public void deinit() {
-    Modules.current().stop();
+    Modules.unload();
   }
 
   @Test

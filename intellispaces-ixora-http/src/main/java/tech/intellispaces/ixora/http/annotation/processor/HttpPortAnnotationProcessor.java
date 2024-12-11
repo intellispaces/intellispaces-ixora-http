@@ -1,23 +1,23 @@
 package tech.intellispaces.ixora.http.annotation.processor;
 
+import tech.intellispaces.annotationprocessor.ArtifactGenerator;
+import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
+import tech.intellispaces.annotationprocessor.ArtifactProcessor;
+import tech.intellispaces.annotationprocessor.ArtifactValidator;
 import tech.intellispaces.ixora.http.annotation.HttpPort;
-import tech.intellispaces.jaquarius.annotation.processor.AnnotationProcessorFunctions;
-import tech.intellispaces.java.annotation.AnnotatedTypeProcessor;
-import tech.intellispaces.java.annotation.generator.Generator;
-import tech.intellispaces.java.annotation.validator.AnnotatedTypeValidator;
+import tech.intellispaces.jaquarius.annotationprocessor.AnnotationProcessorConstants;
+import tech.intellispaces.jaquarius.annotationprocessor.AnnotationProcessorFunctions;
 import tech.intellispaces.java.reflection.customtype.CustomType;
 import tech.intellispaces.java.reflection.method.MethodStatement;
 
-import javax.annotation.processing.RoundEnvironment;
 import javax.lang.model.element.ElementKind;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
-public class HttpPortAnnotationProcessor extends AnnotatedTypeProcessor {
+public class HttpPortAnnotationProcessor extends ArtifactProcessor {
 
   public HttpPortAnnotationProcessor() {
-    super(HttpPort.class, Set.of(ElementKind.INTERFACE));
+    super(ElementKind.INTERFACE, HttpPort.class, AnnotationProcessorConstants.SOURCE_VERSION);
   }
 
   @Override
@@ -26,15 +26,15 @@ public class HttpPortAnnotationProcessor extends AnnotatedTypeProcessor {
   }
 
   @Override
-  public AnnotatedTypeValidator getValidator() {
+  public ArtifactValidator validator() {
     return null;
   }
 
   @Override
-  public List<Generator> makeGenerators(CustomType initiatorType, CustomType portDomain, RoundEnvironment roundEnv) {
-    List<Generator> generators = new ArrayList<>();
-    generators.add(new HttpPortHandleGenerator(initiatorType, portDomain));
-    generators.add(new HttpPortProviderGenerator(initiatorType, portDomain));
+  public List<ArtifactGenerator> makeGenerators(CustomType portDomain, ArtifactGeneratorContext context) {
+    List<ArtifactGenerator> generators = new ArrayList<>();
+    generators.add(new HttpPortHandleGenerator(portDomain));
+    generators.add(new HttpPortProviderGenerator(portDomain));
 
     List<CustomType> ontologies = portDomain.selectAnnotation(HttpPort.class.getCanonicalName()).orElseThrow()
         .value().orElseThrow()
@@ -43,30 +43,28 @@ public class HttpPortAnnotationProcessor extends AnnotatedTypeProcessor {
         .map(e -> e.asClass().orElseThrow().type())
         .toList();
     for (CustomType ontology : ontologies) {
-      generators.add(new HttpPortGuideGenerator(initiatorType, portDomain, ontology));
-      addHttpPortExchangeChannels(initiatorType, generators, portDomain, ontology);
+      generators.add(new HttpPortGuideGenerator(portDomain, ontology));
+      addHttpPortExchangeChannels(generators, portDomain, ontology);
     }
     return generators;
   }
 
   private void addHttpPortExchangeChannels(
-      CustomType initiatorType,
-      List<Generator> generators,
+      List<ArtifactGenerator> generators,
       CustomType portDomain,
       CustomType ontology
   ) {
-    ontology.actualMethods().forEach(m -> addHttpPortExchangeChannels(initiatorType, generators, portDomain, ontology, m));
+    ontology.actualMethods().forEach(m -> addHttpPortExchangeChannels(generators, portDomain, ontology, m));
   }
 
   private void addHttpPortExchangeChannels(
-      CustomType initiatorType,
-      List<Generator> generators,
+      List<ArtifactGenerator> generators,
       CustomType portDomain,
       CustomType ontology,
       MethodStatement channelMethod
   ) {
     generators.add(
-      new HttpPortExchangeChannelGenerator(initiatorType, portDomain, ontology, channelMethod)
+      new HttpPortExchangeChannelGenerator(portDomain, ontology, channelMethod)
     );
   }
 }

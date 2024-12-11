@@ -3,7 +3,7 @@ package tech.intellispaces.ixora.http.common;
 import tech.intellispaces.general.text.StringFunctions;
 import tech.intellispaces.general.type.ClassNameFunctions;
 import tech.intellispaces.ixora.http.HttpRequestDomain;
-import tech.intellispaces.jaquarius.common.NameConventionFunctions;
+import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
 import tech.intellispaces.java.reflection.customtype.CustomType;
 import tech.intellispaces.java.reflection.method.MethodParam;
 import tech.intellispaces.java.reflection.method.MethodStatement;

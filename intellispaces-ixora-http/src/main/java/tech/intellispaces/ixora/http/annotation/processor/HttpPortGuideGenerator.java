@@ -1,5 +1,6 @@
 package tech.intellispaces.ixora.http.annotation.processor;
 
+import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.ixora.http.HttpRequest;
 import tech.intellispaces.ixora.http.HttpResponse;
 import tech.intellispaces.general.exception.NotImplementedExceptions;
@@ -11,43 +12,39 @@ import tech.intellispaces.ixora.http.exception.HttpException;
 import tech.intellispaces.ixora.internet.UriToQueryParamGuide;
 import tech.intellispaces.jaquarius.annotation.AutoGuide;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
-import tech.intellispaces.jaquarius.annotation.processor.AbstractGenerator;
+import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.jaquarius.object.ObjectHandleFunctions;
-import tech.intellispaces.java.annotation.context.AnnotationProcessingContext;
 import tech.intellispaces.java.reflection.customtype.CustomType;
 import tech.intellispaces.java.reflection.method.MethodParam;
 import tech.intellispaces.java.reflection.method.MethodSignatureDeclarations;
 import tech.intellispaces.java.reflection.method.MethodStatement;
 
-import javax.annotation.processing.RoundEnvironment;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.function.Function;
 
-public class HttpPortGuideGenerator extends AbstractGenerator {
+public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
   private final CustomType portDomain;
   private final CustomType ontology;
   private final List<Map<String, Object>> guideMethods = new ArrayList<>();
   private final List<Map<String, Object>> ontologyMethods = new ArrayList<>();
   private boolean needUriToQueryParamGuide = false;
 
-  public HttpPortGuideGenerator(
-      CustomType initiatorType, CustomType portDomain, CustomType ontology
-  ) {
-    super(initiatorType, ontology);
+  public HttpPortGuideGenerator(CustomType portDomain, CustomType ontology) {
+    super(ontology);
     this.portDomain = portDomain;
     this.ontology = ontology;
   }
 
   @Override
-  public boolean isRelevant(AnnotationProcessingContext context) {
+  public boolean isRelevant(ArtifactGeneratorContext context) {
     return true;
   }
 
   @Override
-  public String artifactName() {
+  public String generatedArtifactName() {
     return HttpNameConventionFunctions.getPortGuideCanonicalName(ontology);
   }
 
@@ -57,36 +54,23 @@ public class HttpPortGuideGenerator extends AbstractGenerator {
   }
 
   @Override
-  protected Map<String, Object> templateVariables() {
-    Map<String, Object> vars = new HashMap<>();
-    vars.put("packageName", context.packageName());
-    vars.put("sourceCanonicalName", sourceClassCanonicalName());
-    vars.put("sourceSimpleName", sourceClassSimpleName());
-    vars.put("classSimpleName", context.generatedClassSimpleName());
-    vars.put("generatedAnnotation", makeGeneratedAnnotation());
-    vars.put("importedClasses", context.getImports());
-
-    vars.put("portSimpleName", context.addToImportAndGetSimpleName(portDomain.canonicalName()));
-    vars.put("ontologySimpleName", context.addToImportAndGetSimpleName(ontology.canonicalName()));
-    vars.put("guideMethods", guideMethods);
-    vars.put("ontologyMethods", ontologyMethods);
-    vars.put("needUriToQueryParamGuide", needUriToQueryParamGuide);
-
-    return vars;
-  }
-
-  @Override
-  protected boolean analyzeAnnotatedType(RoundEnvironment roundEnv) {
-    context.generatedClassCanonicalName(artifactName());
-
-    context.addImport(MapperOfMoving.class);
+  protected boolean analyzeSourceArtifact(ArtifactGeneratorContext context) {
+    addImport(MapperOfMoving.class);
 
     analyzeMethods();
+
+    addVariable("generatedAnnotation", makeGeneratedAnnotation());
+
+    addVariable("portSimpleName", addToImportAndGetSimpleName(portDomain.canonicalName()));
+    addVariable("ontologySimpleName", addToImportAndGetSimpleName(ontology.canonicalName()));
+    addVariable("guideMethods", guideMethods);
+    addVariable("ontologyMethods", ontologyMethods);
+    addVariable("needUriToQueryParamGuide", needUriToQueryParamGuide);
     return true;
   }
 
   private void analyzeMethods() {
-    for (MethodStatement method : annotatedType.actualMethods()) {
+    for (MethodStatement method : sourceArtifact().actualMethods()) {
       guideMethods.add(buildGuideMethod(method));
       ontologyMethods.add(buildMethod(method));
     }
@@ -94,7 +78,7 @@ public class HttpPortGuideGenerator extends AbstractGenerator {
 
   private Map<String, Object> buildGuideMethod(MethodStatement method) {
     Map<String, Object> map = new HashMap<>();
-    map.put("channelClass", context.addToImportAndGetSimpleName(
+    map.put("channelClass", addToImportAndGetSimpleName(
         HttpNameConventionFunctions.getActualPortExchangeChannelCanonicalName(portDomain, ontology, method)));
     map.put("signature", buildGuideMethodSignature(method));
     map.put("body", buildGuideMethodBody(method));
@@ -103,15 +87,15 @@ public class HttpPortGuideGenerator extends AbstractGenerator {
 
   private String buildGuideMethodSignature(MethodStatement method) {
     var sb = new StringBuilder();
-    sb.append(context.addToImportAndGetSimpleName(HttpResponse.class));
+    sb.append(addToImportAndGetSimpleName(HttpResponse.class));
     sb.append(" ");
     sb.append(buildGuideMethodName(method));
     sb.append("(");
-    sb.append(context.addToImportAndGetSimpleName(ObjectHandleFunctions.getCommonObjectHandleTypename(portDomain)));
+    sb.append(addToImportAndGetSimpleName(ObjectHandleFunctions.getCommonObjectHandleTypename(portDomain)));
     sb.append(" port, ");
-    sb.append(context.addToImportAndGetSimpleName(HttpRequest.class));
+    sb.append(addToImportAndGetSimpleName(HttpRequest.class));
     sb.append(" request) throws ");
-    sb.append(context.addToImportAndGetSimpleName(HttpException.class));
+    sb.append(addToImportAndGetSimpleName(HttpException.class));
     return sb.toString();
   }
 
@@ -144,7 +128,7 @@ public class HttpPortGuideGenerator extends AbstractGenerator {
     Map<String, Object> map = new HashMap<>();
 
     String signature = MethodSignatureDeclarations.build(method)
-        .get(context::addImport, context::addToImportAndGetSimpleName);
+        .get(this::addImport, this::addToImportAndGetSimpleName);
     map.put("signature", signature);
     return map;
   }
@@ -198,7 +182,7 @@ public class HttpPortGuideGenerator extends AbstractGenerator {
     includeUriToQueryParamGuide();
 
     StringBuilder sb = new StringBuilder();
-    sb.append(context.addToImportAndGetSimpleName(tech.intellispaces.ixora.data.collection.List.class));
+    sb.append(addToImportAndGetSimpleName(tech.intellispaces.ixora.data.collection.List.class));
     sb.append("<String> ");
     sb.append(valuesVariable);
     sb.append(" = uriToQueryParamGuide().map(request.requestURI(), \"");
@@ -206,13 +190,13 @@ public class HttpPortGuideGenerator extends AbstractGenerator {
     sb.append("\");\n");
     sb.append("if (").append(valuesVariable).append(".size() == 0) {\n");
     sb.append("  throw ")
-        .append(context.addToImportAndGetSimpleName(UnexpectedExceptions.class))
+        .append(addToImportAndGetSimpleName(UnexpectedExceptions.class))
         .append(".withMessage(\"Query parameter '")
         .append(queryParamName)
         .append("' was not found\");\n");
     sb.append("} else if (").append(valuesVariable).append(".size() > 1) {\n");
     sb.append("  throw ")
-        .append(context.addToImportAndGetSimpleName(UnexpectedExceptions.class))
+        .append(addToImportAndGetSimpleName(UnexpectedExceptions.class))
         .append(".withMessage(\"Multiple query parameter '")
         .append(queryParamName)
         .append("' values found\");\n");
@@ -222,7 +206,7 @@ public class HttpPortGuideGenerator extends AbstractGenerator {
     sb.append(" = ");
     sb.append(valuesVariable);
     sb.append(".get(0);\n");
-    sb.append(param.type().actualDeclaration(context::addToImportAndGetSimpleName));
+    sb.append(param.type().actualDeclaration(this::addToImportAndGetSimpleName));
     sb.append(" ");
     sb.append(castedValueVariable);
     sb.append(" = ");
@@ -241,8 +225,8 @@ public class HttpPortGuideGenerator extends AbstractGenerator {
 
   private void includeUriToQueryParamGuide() {
     needUriToQueryParamGuide = true;
-    context.addImport(AutoGuide.class);
-    context.addImport(UriToQueryParamGuide.class);
+    addImport(AutoGuide.class);
+    addImport(UriToQueryParamGuide.class);
   }
 
   private String buildMethodArgumentExtractorDeclarationEmpty(MethodParam param) {

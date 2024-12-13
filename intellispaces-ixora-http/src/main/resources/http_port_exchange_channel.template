@@ -1,4 +1,4 @@
-package {{$packageName}};
+package {{$generatedArtifactPackageName}};
 
 {{for importedClass : $importedClasses}}
 import {{$importedClass}};
@@ -11,7 +11,7 @@ import {{$importedClass}};
  */
  {{$generatedAnnotation}}
 @Channel("{{$cid}}")
-public interface {{$classSimpleName}} extends {{$superChannelSimpleName}} {
+public interface {{$generatedArtifactSimpleName}} extends {{$superChannelSimpleName}} {
 
   HttpResponseDomain exchange({{$portSimpleName}} port, HttpRequestDomain request) throws HttpException;
 }

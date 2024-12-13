@@ -14,9 +14,9 @@ import javax.lang.model.element.ElementKind;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HttpPortAnnotationProcessor extends ArtifactProcessor {
+public class HttpPortProcessor extends ArtifactProcessor {
 
-  public HttpPortAnnotationProcessor() {
+  public HttpPortProcessor() {
     super(ElementKind.INTERFACE, HttpPort.class, AnnotationProcessorConstants.SOURCE_VERSION);
   }
 

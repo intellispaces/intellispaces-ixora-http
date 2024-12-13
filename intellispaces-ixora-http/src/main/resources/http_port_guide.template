@@ -1,4 +1,4 @@
-package {{$packageName}};
+package {{$generatedArtifactPackageName}};
 
 {{for importedClass : $importedClasses}}
 import {{$importedClass}};
@@ -10,7 +10,7 @@ import {{$importedClass}};
  * This class was generated automatically. Don't try to change it.
  */
  {{$generatedAnnotation}}
-public abstract class {{$classSimpleName}} {
+public abstract class {{$generatedArtifactSimpleName}} {
 {{when $needUriToQueryParamGuide}}
    @AutoGuide
    abstract UriToQueryParamGuide uriToQueryParamGuide();

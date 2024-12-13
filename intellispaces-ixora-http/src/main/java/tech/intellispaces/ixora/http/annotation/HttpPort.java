@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.http.annotation;
 
-import tech.intellispaces.ixora.http.annotation.processor.HttpPortAnnotationProcessor;
+import tech.intellispaces.ixora.http.annotation.processor.HttpPortProcessor;
 import tech.intellispaces.jaquarius.annotation.AnnotationProcessor;
 
 import java.lang.annotation.ElementType;
@@ -13,7 +13,7 @@ import java.lang.annotation.Target;
  */
 @Target(ElementType.TYPE)
 @Retention(RetentionPolicy.RUNTIME)
-@AnnotationProcessor(HttpPortAnnotationProcessor.class)
+@AnnotationProcessor(HttpPortProcessor.class)
 public @interface HttpPort {
 
   /**

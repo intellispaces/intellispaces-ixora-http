@@ -1,24 +1,24 @@
-package {{$packageName}};
+package {{$generatedArtifactPackageName}};
 
 {{for importedClass : $importedClasses}}
 import {{$importedClass}};
 {{end}}
 
 /**
- * HTTP port provider for {@link {{$sourceSimpleName}}}.<p/>
+ * HTTP port provider for {@link {{$sourceArtifactSimpleName}}}.<p/>
  *
  * This class was generated automatically. Don't try to change it.
  */
  {{$generatedAnnotation}}
-public interface {{$classSimpleName}} {
+public interface {{$generatedArtifactSimpleName}} {
 
   static {{$movableHandleSimpleName}} get(MovableInboundHttpPort operativePort) {
     return new {{$handleImplSimpleName}}(operativePort);
   }
 
   static {{$movableHandleSimpleName}} getAndLink(MovableInboundHttpPort operativePort) {
-    {{$movableHandleSimpleName}} logicalPort = {{$classSimpleName}}.get(operativePort);
-    operativePort.addProjection({{$sourceSimpleName}}.class, logicalPort);
+    {{$movableHandleSimpleName}} logicalPort = {{$generatedArtifactSimpleName}}.get(operativePort);
+    operativePort.addProjection({{$sourceArtifactSimpleName}}.class, logicalPort);
     return logicalPort;
   }
 }

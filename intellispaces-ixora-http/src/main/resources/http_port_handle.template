@@ -1,21 +1,21 @@
-package {{$packageName}};
+package {{$generatedArtifactPackageName}};
 
 {{for importedClass : $importedClasses}}
 import {{$importedClass}};
 {{end}}
 
 /**
- * Logical HTTP port handle for {@link {{$sourceSimpleName}}}.<p/>
+ * Logical HTTP port handle for {@link {{$sourceArtifactSimpleName}}}.<p/>
  *
  * This class was generated automatically. Don't try to change it.
  */
-@ObjectHandle({{$sourceSimpleName}}.class)
+@ObjectHandle({{$sourceArtifactSimpleName}}.class)
 {{$generatedAnnotation}}
-public abstract class {{$classSimpleName}} implements {{$movableHandleSimpleName}} {
+public abstract class {{$generatedArtifactSimpleName}} implements {{$movableHandleSimpleName}} {
   private final MovableInboundHttpPort operativePort;
-  private final Reference<?> reference = HttpPortEngines.get().bridge(this, {{$sourceSimpleName}}.class);
+  private final Reference<?> reference = HttpPortEngines.get().bridge(this, {{$sourceArtifactSimpleName}}.class);
 
-  public {{$classSimpleName}}(MovableInboundHttpPort operativePort) {
+  public {{$generatedArtifactSimpleName}}(MovableInboundHttpPort operativePort) {
     this.operativePort = operativePort;
   }
 

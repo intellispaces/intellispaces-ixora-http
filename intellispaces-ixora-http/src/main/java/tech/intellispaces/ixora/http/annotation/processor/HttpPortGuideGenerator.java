@@ -59,8 +59,6 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
 
     analyzeMethods();
 
-    addVariable("generatedAnnotation", makeGeneratedAnnotation());
-
     addVariable("portSimpleName", addToImportAndGetSimpleName(portDomain.canonicalName()));
     addVariable("ontologySimpleName", addToImportAndGetSimpleName(ontology.canonicalName()));
     addVariable("guideMethods", guideMethods);

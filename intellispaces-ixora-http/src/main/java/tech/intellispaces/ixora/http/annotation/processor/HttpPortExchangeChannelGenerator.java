@@ -56,8 +56,6 @@ public class HttpPortExchangeChannelGenerator extends JaquariusArtifactGenerator
         HttpNameConventionFunctions.getPortExchangeChannelCanonicalName(portDomain)
     );
 
-    addVariable("generatedAnnotation", makeGeneratedAnnotation());
-
     addVariable("cid", cid);
     addVariable("superChannelSimpleName", superChannelSimpleName);
     addVariable("channelMethodName", channelMethod.name());

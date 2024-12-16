@@ -53,7 +53,6 @@ public class HttpPortProviderGenerator extends JaquariusArtifactGenerator {
         NameConventionFunctions.getMovableObjectHandleTypename(sourceArtifact().canonicalName())
     );
 
-    addVariable("generatedAnnotation", makeGeneratedAnnotation());
     addVariable("handleImplSimpleName", handleImplSimpleName);
     addVariable("movableHandleSimpleName", movableHandleSimpleName);
     return true;

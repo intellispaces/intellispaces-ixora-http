@@ -5,8 +5,8 @@ import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.annotationprocessor.ArtifactProcessor;
 import tech.intellispaces.annotationprocessor.ArtifactValidator;
 import tech.intellispaces.ixora.http.annotation.HttpPort;
-import tech.intellispaces.jaquarius.annotationprocessor.AnnotationProcessorConstants;
 import tech.intellispaces.jaquarius.annotationprocessor.AnnotationProcessorFunctions;
+import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactProcessor;
 import tech.intellispaces.java.reflection.customtype.CustomType;
 import tech.intellispaces.java.reflection.method.MethodStatement;
 
@@ -17,7 +17,7 @@ import java.util.List;
 public class HttpPortProcessor extends ArtifactProcessor {
 
   public HttpPortProcessor() {
-    super(ElementKind.INTERFACE, HttpPort.class, AnnotationProcessorConstants.SOURCE_VERSION);
+    super(ElementKind.INTERFACE, HttpPort.class, JaquariusArtifactProcessor.SOURCE_VERSION);
   }
 
   @Override

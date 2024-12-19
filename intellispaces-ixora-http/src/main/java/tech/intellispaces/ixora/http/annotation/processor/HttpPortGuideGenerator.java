@@ -1,11 +1,11 @@
 package tech.intellispaces.ixora.http.annotation.processor;
 
 import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
-import tech.intellispaces.ixora.http.HttpRequest;
-import tech.intellispaces.ixora.http.HttpResponse;
 import tech.intellispaces.general.exception.NotImplementedExceptions;
 import tech.intellispaces.general.exception.UnexpectedExceptions;
 import tech.intellispaces.general.text.StringFunctions;
+import tech.intellispaces.ixora.http.HttpRequest;
+import tech.intellispaces.ixora.http.HttpResponse;
 import tech.intellispaces.ixora.http.annotation.QueryParam;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.ixora.http.exception.HttpException;
@@ -13,7 +13,7 @@ import tech.intellispaces.ixora.internet.UriToQueryParamGuide;
 import tech.intellispaces.jaquarius.annotation.AutoGuide;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
-import tech.intellispaces.jaquarius.object.ObjectHandleFunctions;
+import tech.intellispaces.jaquarius.object.handle.ObjectHandleFunctions;
 import tech.intellispaces.java.reflection.customtype.CustomType;
 import tech.intellispaces.java.reflection.method.MethodParam;
 import tech.intellispaces.java.reflection.method.MethodSignatureDeclarations;

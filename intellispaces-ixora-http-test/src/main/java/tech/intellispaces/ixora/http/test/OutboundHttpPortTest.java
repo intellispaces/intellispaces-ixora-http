@@ -1,17 +1,17 @@
 package tech.intellispaces.ixora.http.test;
 
 import com.sun.net.httpserver.HttpServer;
+import org.assertj.core.api.Fail;
+import tech.intellispaces.general.collection.ArraysFunctions;
+import tech.intellispaces.ixora.http.HttpMethods;
 import tech.intellispaces.ixora.http.HttpRequest;
+import tech.intellispaces.ixora.http.HttpRequests;
 import tech.intellispaces.ixora.http.HttpResponse;
 import tech.intellispaces.ixora.http.HttpStatus;
 import tech.intellispaces.ixora.http.MovableOutboundHttpPort;
 import tech.intellispaces.ixora.http.OutboundHttpPort;
-import org.assertj.core.api.Fail;
-import tech.intellispaces.general.collection.ArraysFunctions;
-import tech.intellispaces.ixora.http.HttpMethods;
-import tech.intellispaces.ixora.http.HttpRequests;
 import tech.intellispaces.ixora.http.exception.HttpException;
-import tech.intellispaces.jaquarius.object.ObjectHandleFunctions;
+import tech.intellispaces.jaquarius.object.handle.ObjectHandleFunctions;
 
 import java.io.IOException;
 import java.net.HttpURLConnection;

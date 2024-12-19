@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.http.pathtree;
 
 import tech.intellispaces.ixora.http.HttpMethod;
-import tech.intellispaces.ixora.http.HttpRequest;
 import tech.intellispaces.ixora.http.HttpMethods;
+import tech.intellispaces.ixora.http.HttpRequest;
 import tech.intellispaces.ixora.http.annotation.Get;
 import tech.intellispaces.ixora.http.annotation.HttpOntology;
 import tech.intellispaces.ixora.http.annotation.HttpPort;

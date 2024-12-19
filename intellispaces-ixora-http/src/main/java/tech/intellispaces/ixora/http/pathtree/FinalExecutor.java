@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.http.pathtree;
 
+import tech.intellispaces.action.Action2;
 import tech.intellispaces.ixora.http.HttpRequest;
 import tech.intellispaces.ixora.http.HttpResponse;
-import tech.intellispaces.action.Action2;
 import tech.intellispaces.jaquarius.action.TraverseActions;
 import tech.intellispaces.jaquarius.channel.Channel1;
 import tech.intellispaces.java.reflection.method.MethodSignature;

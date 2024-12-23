@@ -46,10 +46,10 @@ public class HttpPortProviderGenerator extends JaquariusArtifactGenerator {
     addImport(HttpException.class);
     addImport(MovableInboundHttpPort.class);
 
-    handleImplSimpleName = addToImportAndGetSimpleName(
+    handleImplSimpleName = addImportAndGetSimpleName(
         HttpNameConventionFunctions.getPortHandleImplCanonicalName(sourceArtifact())
     );
-    movableHandleSimpleName = addToImportAndGetSimpleName(
+    movableHandleSimpleName = addImportAndGetSimpleName(
         NameConventionFunctions.getMovableObjectHandleTypename(sourceArtifact().canonicalName())
     );
 

@@ -52,15 +52,15 @@ public class HttpPortExchangeChannelGenerator extends JaquariusArtifactGenerator
     cid = ChannelFunctions.computedChannelId(
         HttpNameConventionFunctions.getFormalPortExchangeChannelCanonicalName(portDomain, ontology, channelMethod)
     );
-    superChannelSimpleName = addToImportAndGetSimpleName(
+    superChannelSimpleName = addImportAndGetSimpleName(
         HttpNameConventionFunctions.getPortExchangeChannelCanonicalName(portDomain)
     );
 
     addVariable("cid", cid);
     addVariable("superChannelSimpleName", superChannelSimpleName);
     addVariable("channelMethodName", channelMethod.name());
-    addVariable("portSimpleName", addToImportAndGetSimpleName(portDomain.canonicalName()));
-    addVariable("ontologySimpleName", addToImportAndGetSimpleName(ontology.canonicalName()));
+    addVariable("portSimpleName", addImportAndGetSimpleName(portDomain.canonicalName()));
+    addVariable("ontologySimpleName", addImportAndGetSimpleName(ontology.canonicalName()));
     return true;
   }
 }

@@ -49,7 +49,7 @@ public class HttpPortHandleGenerator extends JaquariusArtifactGenerator {
     addImport(Reference.class);
     addImport(HttpPortEngines.class);
 
-    movableHandleSimpleName = addToImportAndGetSimpleName(
+    movableHandleSimpleName = addImportAndGetSimpleName(
         NameConventionFunctions.getMovableObjectHandleTypename(sourceArtifact().canonicalName())
     );
 

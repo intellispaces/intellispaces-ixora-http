@@ -59,8 +59,8 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
 
     analyzeMethods();
 
-    addVariable("portSimpleName", addToImportAndGetSimpleName(portDomain.canonicalName()));
-    addVariable("ontologySimpleName", addToImportAndGetSimpleName(ontology.canonicalName()));
+    addVariable("portSimpleName", addImportAndGetSimpleName(portDomain.canonicalName()));
+    addVariable("ontologySimpleName", addImportAndGetSimpleName(ontology.canonicalName()));
     addVariable("guideMethods", guideMethods);
     addVariable("ontologyMethods", ontologyMethods);
     addVariable("needUriToQueryParamGuide", needUriToQueryParamGuide);
@@ -76,7 +76,7 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
 
   private Map<String, Object> buildGuideMethod(MethodStatement method) {
     Map<String, Object> map = new HashMap<>();
-    map.put("channelClass", addToImportAndGetSimpleName(
+    map.put("channelClass", addImportAndGetSimpleName(
         HttpNameConventionFunctions.getActualPortExchangeChannelCanonicalName(portDomain, ontology, method)));
     map.put("signature", buildGuideMethodSignature(method));
     map.put("body", buildGuideMethodBody(method));
@@ -85,15 +85,15 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
 
   private String buildGuideMethodSignature(MethodStatement method) {
     var sb = new StringBuilder();
-    sb.append(addToImportAndGetSimpleName(HttpResponse.class));
+    sb.append(addImportAndGetSimpleName(HttpResponse.class));
     sb.append(" ");
     sb.append(buildGuideMethodName(method));
     sb.append("(");
-    sb.append(addToImportAndGetSimpleName(ObjectHandleFunctions.getCommonObjectHandleTypename(portDomain)));
+    sb.append(addImportAndGetSimpleName(ObjectHandleFunctions.getCommonObjectHandleTypename(portDomain)));
     sb.append(" port, ");
-    sb.append(addToImportAndGetSimpleName(HttpRequest.class));
+    sb.append(addImportAndGetSimpleName(HttpRequest.class));
     sb.append(" request) throws ");
-    sb.append(addToImportAndGetSimpleName(HttpException.class));
+    sb.append(addImportAndGetSimpleName(HttpException.class));
     return sb.toString();
   }
 
@@ -126,7 +126,7 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
     Map<String, Object> map = new HashMap<>();
 
     String signature = MethodSignatureDeclarations.build(method)
-        .get(this::addImport, this::addToImportAndGetSimpleName);
+        .get(this::addImport, this::addImportAndGetSimpleName);
     map.put("signature", signature);
     return map;
   }
@@ -180,7 +180,7 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
     includeUriToQueryParamGuide();
 
     StringBuilder sb = new StringBuilder();
-    sb.append(addToImportAndGetSimpleName(tech.intellispaces.ixora.data.collection.List.class));
+    sb.append(addImportAndGetSimpleName(tech.intellispaces.ixora.data.collection.List.class));
     sb.append("<String> ");
     sb.append(valuesVariable);
     sb.append(" = uriToQueryParamGuide().map(request.requestURI(), \"");
@@ -188,13 +188,13 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
     sb.append("\");\n");
     sb.append("if (").append(valuesVariable).append(".size() == 0) {\n");
     sb.append("  throw ")
-        .append(addToImportAndGetSimpleName(UnexpectedExceptions.class))
+        .append(addImportAndGetSimpleName(UnexpectedExceptions.class))
         .append(".withMessage(\"Query parameter '")
         .append(queryParamName)
         .append("' was not found\");\n");
     sb.append("} else if (").append(valuesVariable).append(".size() > 1) {\n");
     sb.append("  throw ")
-        .append(addToImportAndGetSimpleName(UnexpectedExceptions.class))
+        .append(addImportAndGetSimpleName(UnexpectedExceptions.class))
         .append(".withMessage(\"Multiple query parameter '")
         .append(queryParamName)
         .append("' values found\");\n");
@@ -204,7 +204,7 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
     sb.append(" = ");
     sb.append(valuesVariable);
     sb.append(".get(0);\n");
-    sb.append(param.type().actualDeclaration(this::addToImportAndGetSimpleName));
+    sb.append(param.type().actualDeclaration(this::addImportAndGetSimpleName));
     sb.append(" ");
     sb.append(castedValueVariable);
     sb.append(" = ");

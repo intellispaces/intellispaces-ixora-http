@@ -29,29 +29,29 @@ public class DedicatedHttpPortHandleSimpleTest {
   @Test
   public void test() {
     // Given
-    HttpMethod httpGetMethod = HttpMethods.get();
-    HttpMethod httpPostMethod = HttpMethods.post();
+    HttpMethodHandle httpGetMethod = HttpMethods.get();
+    HttpMethodHandle httpPostMethod = HttpMethods.post();
 
-    MovableHttpPort underlyingPort = mock(MovableHttpPort.class);
+    MovableHttpPortHandle underlyingPort = mock(MovableHttpPortHandle.class);
 
-    HttpResponse response1 = mock(HttpResponse.class);
+    HttpResponseHandle response1 = mock(HttpResponseHandle.class);
     when(underlyingPort.exchange(argThat(req -> req != null
         && req.method().name().equals(httpGetMethod.name())
         && req.requestURI().toString().equals("http:localhost:8080/api/test")))
     ).thenReturn(response1);
 
-    HttpResponse response2 = mock(HttpResponse.class);
+    HttpResponseHandle response2 = mock(HttpResponseHandle.class);
     when(underlyingPort.exchange(argThat(req -> req != null
         && req.method().name().equals(httpPostMethod.name())
         && req.requestURI().toString().equals("http:localhost:8080/api/test")))
     ).thenReturn(response2);
 
     String baseUrl = "http:localhost:8080/api";
-    var dedicatedHttpPort = new DedicatedHttpPortHandleImpl(baseUrl, underlyingPort);
+    var dedicatedHttpPort = new DedicatedHttpPortHandleSimpleImpl(baseUrl, underlyingPort);
 
     // When
-    HttpResponse actualResponse1 = dedicatedHttpPort.exchange("/test", httpGetMethod);
-    HttpResponse actualResponse2 = dedicatedHttpPort.exchange("test", httpPostMethod);
+    HttpResponseHandle actualResponse1 = dedicatedHttpPort.exchange("/test", httpGetMethod);
+    HttpResponseHandle actualResponse2 = dedicatedHttpPort.exchange("test", httpPostMethod);
 
     // Then
     assertThat(actualResponse1).isSameAs(response1);

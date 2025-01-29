@@ -3,7 +3,7 @@ package tech.intellispaces.ixora.http;
 import tech.intellispaces.general.collection.ArraysFunctions;
 import tech.intellispaces.general.text.StringFunctions;
 import tech.intellispaces.ixora.data.datastream.DataStreams;
-import tech.intellispaces.ixora.data.datastream.MovableByteInputStream;
+import tech.intellispaces.ixora.data.datastream.MovableByteInputStreamHandle;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
@@ -11,36 +11,36 @@ import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import java.io.InputStream;
 
 @ObjectHandle(HttpResponseDomain.class)
-abstract class HttpResponseHandle implements UnmovableHttpResponse {
-  private final HttpStatus status;
-  private final MovableByteInputStream bodyStream;
+abstract class HttpResponseHandleSimple implements UnmovableHttpResponseHandle {
+  private final HttpStatusHandleSimple status;
+  private final MovableByteInputStreamHandle bodyStream;
 
-  HttpResponseHandle(HttpStatus status, InputStream body) {
+  HttpResponseHandleSimple(HttpStatusHandleSimple status, InputStream body) {
     this.status = status;
     this.bodyStream = DataStreams.get(body);
   }
 
-  HttpResponseHandle(HttpStatus status, String body) {
+  HttpResponseHandleSimple(HttpStatusHandleSimple status, String body) {
     this(status, StringFunctions.stringToInputStream(body));
   }
 
-  HttpResponseHandle(HttpStatus status, byte[] body) {
+  HttpResponseHandleSimple(HttpStatusHandleSimple status, byte[] body) {
     this(status, ArraysFunctions.arrayToInputStream(body));
   }
 
-  HttpResponseHandle(HttpStatus status) {
+  HttpResponseHandleSimple(HttpStatusHandleSimple status) {
     this(status, InputStream.nullInputStream());
   }
 
   @Mapper
   @Override
-  public HttpStatus status() {
+  public HttpStatusHandle status() {
     return this.status;
   }
 
   @MapperOfMoving
   @Override
-  public MovableByteInputStream bodyStream() {
+  public MovableByteInputStreamHandle bodyStream() {
     return bodyStream;
   }
 }

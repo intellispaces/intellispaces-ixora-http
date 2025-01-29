@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.http.pathtree;
 
 import tech.intellispaces.action.Action2;
-import tech.intellispaces.ixora.http.HttpRequest;
-import tech.intellispaces.ixora.http.HttpResponse;
+import tech.intellispaces.ixora.http.HttpRequestHandle;
+import tech.intellispaces.ixora.http.HttpResponseHandle;
 import tech.intellispaces.jaquarius.action.TraverseActions;
 import tech.intellispaces.jaquarius.channel.Channel1;
 import tech.intellispaces.java.reflection.method.MethodSignature;
@@ -11,7 +11,7 @@ public class FinalExecutor {
   private final Object port;
   private final Class<? extends Channel1> channelClass;
   private final MethodSignature method;
-  private final Action2<HttpResponse, Object, HttpRequest> action;
+  private final Action2<HttpResponseHandle, Object, HttpRequestHandle> action;
 
   public FinalExecutor(
       Object port,
@@ -28,12 +28,12 @@ public class FinalExecutor {
     return method;
   }
 
-  public HttpResponse exchange(Object port, HttpRequest request) {
+  public HttpResponseHandle exchange(Object port, HttpRequestHandle request) {
     return action.execute(port, request);
   }
 
   @SuppressWarnings("unchecked, rawtypes")
-  private Action2<HttpResponse, Object, HttpRequest> makeAction(
+  private Action2<HttpResponseHandle, Object, HttpRequestHandle> makeAction(
       Object port, Class<? extends Channel1> channelClass
   ) {
     return (Action2) TraverseActions.mapOfMovingThruChannel1(port.getClass(), channelClass);

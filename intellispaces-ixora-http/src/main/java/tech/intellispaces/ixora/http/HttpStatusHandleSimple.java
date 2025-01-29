@@ -4,10 +4,10 @@ import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
 @ObjectHandle(HttpStatusDomain.class)
-abstract class HttpStatusHandle implements UnmovableHttpStatus {
+abstract class HttpStatusHandleSimple implements UnmovableHttpStatusHandle {
   private final int code;
 
-  HttpStatusHandle(int code) {
+  HttpStatusHandleSimple(int code) {
     this.code = code;
   }
 

@@ -2,9 +2,9 @@ package tech.intellispaces.ixora.http;
 
 import tech.intellispaces.ixora.data.datastream.InputDataStreamDomain;
 import tech.intellispaces.ixora.http.exception.HttpException;
-import tech.intellispaces.ixora.system.OutboundModulePortDomain;
 import tech.intellispaces.jaquarius.annotation.Channel;
 import tech.intellispaces.jaquarius.annotation.Domain;
+import tech.intellispaces.jaquarius.ixora.system.OutboundModulePortDomain;
 import tech.intellispaces.jaquarius.traverse.TraverseTypes;
 
 @Domain("8f8f05c6-18be-4275-87ea-c6384d33cbe3")
@@ -34,7 +34,7 @@ public interface DedicatedHttpPortDomain extends OutboundModulePortDomain {
   HttpResponseDomain exchange(
       String endpoint,
       HttpMethodDomain method,
-      HttpHeadersDomain headers,
+      HttpHeaderListDomain headers,
       InputDataStreamDomain<Byte> body
   ) throws HttpException;
 }

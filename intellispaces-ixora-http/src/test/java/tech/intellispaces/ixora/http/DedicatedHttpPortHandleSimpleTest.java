@@ -12,9 +12,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
- * Tests for {@link DedicatedHttpPortHandle} class.
+ * Tests for {@link DedicatedHttpPortHandleSimple} class.
  */
-public class DedicatedHttpPortHandleTest {
+public class DedicatedHttpPortHandleSimpleTest {
 
   @BeforeEach
   public void init() {

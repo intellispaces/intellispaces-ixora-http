@@ -2,9 +2,9 @@ package tech.intellispaces.ixora.http.annotation.processor;
 
 import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
 import tech.intellispaces.general.entity.Reference;
-import tech.intellispaces.ixora.http.HttpRequest;
-import tech.intellispaces.ixora.http.HttpResponse;
-import tech.intellispaces.ixora.http.MovableInboundHttpPort;
+import tech.intellispaces.ixora.http.HttpRequestHandle;
+import tech.intellispaces.ixora.http.HttpResponseHandle;
+import tech.intellispaces.ixora.http.MovableInboundHttpPortHandle;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.ixora.http.engine.HttpPortEngines;
 import tech.intellispaces.ixora.http.exception.HttpException;
@@ -42,10 +42,10 @@ public class HttpPortHandleGenerator extends JaquariusArtifactGenerator {
     addImport(ObjectHandle.class);
     addImport(Mover.class);
     addImport(MapperOfMoving.class);
-    addImport(HttpResponse.class);
-    addImport(HttpRequest.class);
+    addImport(HttpResponseHandle.class);
+    addImport(HttpRequestHandle.class);
     addImport(HttpException.class);
-    addImport(MovableInboundHttpPort.class);
+    addImport(MovableInboundHttpPortHandle.class);
     addImport(Reference.class);
     addImport(HttpPortEngines.class);
 

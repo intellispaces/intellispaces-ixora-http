@@ -4,31 +4,31 @@ import java.io.InputStream;
 
 public interface HttpResponses {
 
-  static HttpResponse get(HttpStatus status) {
-    return new HttpResponseHandleImpl(status);
+  static HttpResponseHandle get(HttpStatusHandleSimple status) {
+    return new HttpResponseHandleSimpleImpl(status);
   }
 
-  static HttpResponse get(HttpStatus status, InputStream body) {
-    return new HttpResponseHandleImpl(status, body);
+  static HttpResponseHandle get(HttpStatusHandleSimple status, InputStream body) {
+    return new HttpResponseHandleSimpleImpl(status, body);
   }
 
-  static HttpResponse get(HttpStatus status, String body) {
-    return new HttpResponseHandleImpl(status, body);
+  static HttpResponseHandle get(HttpStatusHandleSimple status, String body) {
+    return new HttpResponseHandleSimpleImpl(status, body);
   }
 
-  static HttpResponse get(HttpStatus status, byte[] body) {
-    return new HttpResponseHandleImpl(status, body);
+  static HttpResponseHandle get(HttpStatusHandleSimple status, byte[] body) {
+    return new HttpResponseHandleSimpleImpl(status, body);
   }
 
-  static HttpResponse ok(String body) {
+  static HttpResponseHandle ok(String body) {
     return get(HttpStatuses.ok(), body);
   }
 
-  static HttpResponse notFound() {
+  static HttpResponseHandle notFound() {
     return get(HttpStatuses.notFound());
   }
 
-  static HttpResponse notFound(String body) {
+  static HttpResponseHandle notFound(String body) {
     return get(HttpStatuses.notFound(), body);
   }
 }

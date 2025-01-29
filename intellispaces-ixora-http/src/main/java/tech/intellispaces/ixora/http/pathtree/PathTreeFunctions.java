@@ -1,8 +1,8 @@
 package tech.intellispaces.ixora.http.pathtree;
 
-import tech.intellispaces.ixora.http.HttpMethod;
+import tech.intellispaces.ixora.http.HttpMethodHandle;
 import tech.intellispaces.ixora.http.HttpMethods;
-import tech.intellispaces.ixora.http.HttpRequest;
+import tech.intellispaces.ixora.http.HttpRequestHandle;
 import tech.intellispaces.ixora.http.annotation.Get;
 import tech.intellispaces.ixora.http.annotation.HttpOntology;
 import tech.intellispaces.ixora.http.annotation.HttpPort;
@@ -37,7 +37,7 @@ public class PathTreeFunctions {
       HttpOntology httpOntology = ontologyType.selectAnnotation(HttpOntology.class).orElseThrow();
       for (MethodStatement channelMethod : ontologyType.actualMethods()) {
         String path;
-        HttpMethod httpMethod;
+        HttpMethodHandle httpMethod;
         if (channelMethod.hasAnnotation(Get.class)) {
           httpMethod = HttpMethods.get();
           path = channelMethod.selectAnnotation(Get.class).orElseThrow().value();
@@ -57,7 +57,7 @@ public class PathTreeFunctions {
       CustomType ontologyType,
       Collection<PathSegment> rootSegments,
       String path,
-      HttpMethod httpMethod,
+      HttpMethodHandle httpMethod,
       MethodStatement channelMethod
   ) {
     List<String> pathSegments = SPLIT_URI_PATH_GUIDE.map(path).nativeList();
@@ -70,7 +70,7 @@ public class PathTreeFunctions {
       CustomType ontologyType,
       Collection<PathSegment> rootSegments,
       List<String> pathSegments,
-      HttpMethod httpMethod,
+      HttpMethodHandle httpMethod,
       MethodStatement channelMethod
   ) {
     PathSegment finishSegment = null;
@@ -108,7 +108,7 @@ public class PathTreeFunctions {
   }
 
   public static FinalExecutor findExecution(
-      HttpRequest request, java.util.List<PathSegment> rootSegments
+      HttpRequestHandle request, java.util.List<PathSegment> rootSegments
   ) {
     String path = request.requestURI().path();
     List<String> pathSegments = SPLIT_URI_PATH_GUIDE.map(path).nativeList();

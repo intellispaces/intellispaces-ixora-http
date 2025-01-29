@@ -4,7 +4,7 @@ import tech.intellispaces.general.exception.UnexpectedExceptions;
 
 public final class HttpMethods {
 
-  public static HttpMethod get(String name) {
+  public static HttpMethodHandle get(String name) {
     if (GET.name().equals(name)) {
       return GET;
     } else if (HEAD.name().equals(name)) {
@@ -26,46 +26,46 @@ public final class HttpMethods {
     }
   }
 
-  public static HttpMethod get() {
+  public static HttpMethodHandle get() {
     return GET;
   }
 
-  public static HttpMethod head() {
+  public static HttpMethodHandle head() {
     return HEAD;
   }
 
-  public static HttpMethod post() {
+  public static HttpMethodHandle post() {
     return POST;
   }
 
-  public static HttpMethod put() {
+  public static HttpMethodHandle put() {
     return PUT;
   }
 
-  public static HttpMethod patch() {
+  public static HttpMethodHandle patch() {
     return PATCH;
   }
 
-  public static HttpMethod delete() {
+  public static HttpMethodHandle delete() {
     return DELETE;
   }
 
-  public static HttpMethod options() {
+  public static HttpMethodHandle options() {
     return OPTIONS;
   }
 
-  public static HttpMethod trace() {
+  public static HttpMethodHandle trace() {
     return TRACE;
   }
 
   private HttpMethods() {}
 
-  private static final HttpMethod GET = new HttpMethodHandleImpl("GET");
-  private static final HttpMethod HEAD = new HttpMethodHandleImpl("HEAD");
-  private static final HttpMethod POST = new HttpMethodHandleImpl("POST");
-  private static final HttpMethod PUT = new HttpMethodHandleImpl("PUT");
-  private static final HttpMethod PATCH = new HttpMethodHandleImpl("PATCH");
-  private static final HttpMethod DELETE = new HttpMethodHandleImpl("DELETE");
-  private static final HttpMethod OPTIONS = new HttpMethodHandleImpl("OPTIONS");
-  private static final HttpMethod TRACE = new HttpMethodHandleImpl("TRACE");
+  private static final HttpMethodHandle GET = new HttpMethodHandleSimpleImpl("GET");
+  private static final HttpMethodHandle HEAD = new HttpMethodHandleSimpleImpl("HEAD");
+  private static final HttpMethodHandle POST = new HttpMethodHandleSimpleImpl("POST");
+  private static final HttpMethodHandle PUT = new HttpMethodHandleSimpleImpl("PUT");
+  private static final HttpMethodHandle PATCH = new HttpMethodHandleSimpleImpl("PATCH");
+  private static final HttpMethodHandle DELETE = new HttpMethodHandleSimpleImpl("DELETE");
+  private static final HttpMethodHandle OPTIONS = new HttpMethodHandleSimpleImpl("OPTIONS");
+  private static final HttpMethodHandle TRACE = new HttpMethodHandleSimpleImpl("TRACE");
 }

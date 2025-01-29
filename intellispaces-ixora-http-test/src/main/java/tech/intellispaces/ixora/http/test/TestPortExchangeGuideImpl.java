@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.http.test;
 
-import tech.intellispaces.ixora.http.HttpRequest;
-import tech.intellispaces.ixora.http.HttpResponse;
+import tech.intellispaces.ixora.http.HttpRequestHandle;
+import tech.intellispaces.ixora.http.HttpResponseHandle;
 import tech.intellispaces.ixora.http.HttpResponses;
 import tech.intellispaces.jaquarius.annotation.Guide;
 
@@ -9,7 +9,7 @@ import tech.intellispaces.jaquarius.annotation.Guide;
 public class TestPortExchangeGuideImpl implements TestPortExchangeGuide {
 
   @Override
-  public HttpResponse exchange(TestPort port, HttpRequest request) {
+  public HttpResponseHandle exchange(TestPortHandle port, HttpRequestHandle request) {
     return HttpResponses.ok("Hello");
   }
 }

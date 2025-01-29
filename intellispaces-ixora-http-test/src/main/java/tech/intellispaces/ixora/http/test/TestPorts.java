@@ -1,10 +1,10 @@
 package tech.intellispaces.ixora.http.test;
 
-import tech.intellispaces.ixora.http.MovableInboundHttpPort;
+import tech.intellispaces.ixora.http.MovableInboundHttpPortHandle;
 
 public interface TestPorts {
 
-  static MovableTestPort get(MovableInboundHttpPort operativePort) {
-    return new TestPortHandleImpl(operativePort);
+  static MovableTestPortHandle get(MovableInboundHttpPortHandle operativePort) {
+    return new TestPortHandleSimpleImpl(operativePort);
   }
 }

@@ -19,6 +19,7 @@ import tech.intellispaces.java.reflection.customtype.CustomType;
 import tech.intellispaces.java.reflection.method.MethodParam;
 import tech.intellispaces.java.reflection.method.MethodSignatureDeclarations;
 import tech.intellispaces.java.reflection.method.MethodStatement;
+import tech.intellispaces.java.reflection.reference.TypeReference;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -124,12 +125,18 @@ public class HttpPortGuideGenerator extends JaquariusArtifactGenerator {
   }
 
   private Map<String, Object> buildMethod(MethodStatement method) {
-    Map<String, Object> map = new HashMap<>();
-
     String signature = MethodSignatureDeclarations.build(method)
+        .paramDeclarationMapper(this::getGeneralObjectHandleDeclaration)
+        .returnType(getGeneralObjectHandleDeclaration(method.returnType().orElseThrow()))
         .get(this::addImport, this::addImportAndGetSimpleName);
+
+    Map<String, Object> map = new HashMap<>();
     map.put("signature", signature);
     return map;
+  }
+
+  private String getGeneralObjectHandleDeclaration(TypeReference domain) {
+    return ObjectHandleFunctions.getGeneralObjectHandleDeclaration(domain, this::addImportAndGetSimpleName);
   }
 
   private void appendMethodArgumentExtractorDeclaration(StringBuilder sb, MethodParam param) {

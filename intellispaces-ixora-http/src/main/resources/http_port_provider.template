@@ -12,11 +12,11 @@ import {{$importedClass}};
  {{$generatedAnnotation}}
 public interface {{$generatedArtifactSimpleName}} {
 
-  static {{$movableHandleSimpleName}} get(MovableInboundHttpPort operativePort) {
+  static {{$movableHandleSimpleName}} get(MovableInboundHttpPortHandle operativePort) {
     return new {{$handleImplSimpleName}}(operativePort);
   }
 
-  static {{$movableHandleSimpleName}} getAndLink(MovableInboundHttpPort operativePort) {
+  static {{$movableHandleSimpleName}} getAndLink(MovableInboundHttpPortHandle operativePort) {
     {{$movableHandleSimpleName}} logicalPort = {{$generatedArtifactSimpleName}}.get(operativePort);
     operativePort.addProjection({{$sourceArtifactSimpleName}}.class, logicalPort);
     return logicalPort;

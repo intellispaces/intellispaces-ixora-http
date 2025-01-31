@@ -14,7 +14,7 @@ import java.util.List;
 public interface HttpNameConventionFunctions {
 
   static String getPortHandleCanonicalName(CustomType httpPortDomain) {
-    return StringFunctions.replaceTailOrElseThrow(httpPortDomain.canonicalName(), "Domain", "Handle");
+    return StringFunctions.replaceTailOrElseThrow(httpPortDomain.canonicalName(), "Domain", "HandleGenerated");
   }
 
   static String getPortHandleImplCanonicalName(CustomType httpPortDomain) {

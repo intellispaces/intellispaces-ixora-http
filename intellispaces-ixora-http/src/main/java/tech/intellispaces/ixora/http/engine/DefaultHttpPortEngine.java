@@ -1,10 +1,10 @@
 package tech.intellispaces.ixora.http.engine;
 
-import tech.intellispaces.action.conditional.ConditionalActions;
-import tech.intellispaces.general.entity.Reference;
-import tech.intellispaces.general.entity.References;
-import tech.intellispaces.general.exception.NotImplementedExceptions;
-import tech.intellispaces.general.type.Classes;
+import tech.intellispaces.commons.action.conditional.ConditionalActions;
+import tech.intellispaces.commons.base.entity.Reference;
+import tech.intellispaces.commons.base.entity.References;
+import tech.intellispaces.commons.base.exception.NotImplementedExceptions;
+import tech.intellispaces.commons.base.type.Classes;
 import tech.intellispaces.ixora.http.HttpRequestHandle;
 import tech.intellispaces.ixora.http.HttpResponseHandle;
 import tech.intellispaces.ixora.http.pathtree.FinalExecutor;

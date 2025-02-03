@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.general.exception.UnexpectedExceptions;
+import tech.intellispaces.commons.base.exception.UnexpectedExceptions;
 
 public final class HttpStatuses {
 

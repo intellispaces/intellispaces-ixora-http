@@ -1,9 +1,14 @@
 package tech.intellispaces.ixora.http.annotation.processor;
 
-import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
-import tech.intellispaces.general.exception.NotImplementedExceptions;
-import tech.intellispaces.general.exception.UnexpectedExceptions;
-import tech.intellispaces.general.text.StringFunctions;
+import tech.intellispaces.commons.annotation.processor.ArtifactGeneratorContext;
+import tech.intellispaces.commons.base.exception.NotImplementedExceptions;
+import tech.intellispaces.commons.base.exception.UnexpectedExceptions;
+import tech.intellispaces.commons.base.text.StringFunctions;
+import tech.intellispaces.commons.java.reflection.customtype.CustomType;
+import tech.intellispaces.commons.java.reflection.method.MethodParam;
+import tech.intellispaces.commons.java.reflection.method.MethodSignatureDeclarations;
+import tech.intellispaces.commons.java.reflection.method.MethodStatement;
+import tech.intellispaces.commons.java.reflection.reference.TypeReference;
 import tech.intellispaces.ixora.http.HttpRequestHandle;
 import tech.intellispaces.ixora.http.HttpResponseHandle;
 import tech.intellispaces.ixora.http.annotation.QueryParam;
@@ -15,11 +20,6 @@ import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.jaquarius.ixora.data.collection.ListHandle;
 import tech.intellispaces.jaquarius.object.reference.ObjectHandleFunctions;
-import tech.intellispaces.java.reflection.customtype.CustomType;
-import tech.intellispaces.java.reflection.method.MethodParam;
-import tech.intellispaces.java.reflection.method.MethodSignatureDeclarations;
-import tech.intellispaces.java.reflection.method.MethodStatement;
-import tech.intellispaces.java.reflection.reference.TypeReference;
 
 import java.util.ArrayList;
 import java.util.HashMap;

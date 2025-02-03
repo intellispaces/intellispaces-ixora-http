@@ -1,6 +1,7 @@
 package tech.intellispaces.ixora.http.annotation.processor;
 
-import tech.intellispaces.annotationprocessor.ArtifactGeneratorContext;
+import tech.intellispaces.commons.annotation.processor.ArtifactGeneratorContext;
+import tech.intellispaces.commons.java.reflection.customtype.CustomType;
 import tech.intellispaces.ixora.http.HttpRequestHandle;
 import tech.intellispaces.ixora.http.HttpResponseHandle;
 import tech.intellispaces.ixora.http.MovableInboundHttpPortHandle;
@@ -11,7 +12,6 @@ import tech.intellispaces.jaquarius.annotation.Mover;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 import tech.intellispaces.jaquarius.annotationprocessor.JaquariusArtifactGenerator;
 import tech.intellispaces.jaquarius.naming.NameConventionFunctions;
-import tech.intellispaces.java.reflection.customtype.CustomType;
 
 public class HttpPortProviderGenerator extends JaquariusArtifactGenerator {
   private String handleImplSimpleName;

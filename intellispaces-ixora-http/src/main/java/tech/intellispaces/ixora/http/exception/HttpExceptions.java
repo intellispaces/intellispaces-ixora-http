@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.http.exception;
 
-import tech.intellispaces.general.text.StringFunctions;
+import tech.intellispaces.commons.base.text.StringFunctions;
 
 /**
  * Provider of the exception {@link HttpException}.

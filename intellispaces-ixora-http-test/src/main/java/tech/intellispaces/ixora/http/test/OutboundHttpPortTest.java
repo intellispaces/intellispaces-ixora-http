@@ -2,8 +2,7 @@ package tech.intellispaces.ixora.http.test;
 
 import com.sun.net.httpserver.HttpServer;
 import org.assertj.core.api.Fail;
-
-import tech.intellispaces.general.collection.ArraysFunctions;
+import tech.intellispaces.commons.base.collection.ArraysFunctions;
 import tech.intellispaces.ixora.http.HttpMethods;
 import tech.intellispaces.ixora.http.HttpRequestHandle;
 import tech.intellispaces.ixora.http.HttpRequests;

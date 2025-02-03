@@ -1,7 +1,7 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.general.collection.ArraysFunctions;
-import tech.intellispaces.general.text.StringFunctions;
+import tech.intellispaces.commons.base.collection.ArraysFunctions;
+import tech.intellispaces.commons.base.text.StringFunctions;
 import tech.intellispaces.ixora.data.datastream.DataStreams;
 import tech.intellispaces.ixora.data.datastream.MovableByteInputStreamHandle;
 import tech.intellispaces.jaquarius.annotation.Mapper;

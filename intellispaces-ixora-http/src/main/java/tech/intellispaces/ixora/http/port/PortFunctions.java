@@ -1,11 +1,11 @@
 package tech.intellispaces.ixora.http.port;
 
-import tech.intellispaces.general.exception.UnexpectedExceptions;
-import tech.intellispaces.general.type.ClassFunctions;
+import tech.intellispaces.commons.base.exception.UnexpectedExceptions;
+import tech.intellispaces.commons.base.type.ClassFunctions;
+import tech.intellispaces.commons.java.reflection.customtype.CustomType;
+import tech.intellispaces.commons.java.reflection.method.MethodStatement;
 import tech.intellispaces.ixora.http.common.HttpNameConventionFunctions;
 import tech.intellispaces.jaquarius.channel.Channel1;
-import tech.intellispaces.java.reflection.customtype.CustomType;
-import tech.intellispaces.java.reflection.method.MethodStatement;
 
 import java.util.Optional;
 

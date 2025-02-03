@@ -1,6 +1,6 @@
 package tech.intellispaces.ixora.http.engine;
 
-import tech.intellispaces.general.entity.Reference;
+import tech.intellispaces.commons.base.entity.Reference;
 import tech.intellispaces.ixora.http.HttpRequestHandle;
 import tech.intellispaces.ixora.http.HttpResponseHandle;
 

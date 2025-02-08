@@ -1,9 +1,9 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.ixora.data.datastream.InputDataStreamDomain;
 import tech.intellispaces.ixora.http.exception.HttpException;
 import tech.intellispaces.jaquarius.annotation.Channel;
 import tech.intellispaces.jaquarius.annotation.Domain;
+import tech.intellispaces.jaquarius.ixora.data.stream.InputDataStreamDomain;
 import tech.intellispaces.jaquarius.ixora.system.OutboundModulePortDomain;
 import tech.intellispaces.jaquarius.traverse.TraverseTypes;
 

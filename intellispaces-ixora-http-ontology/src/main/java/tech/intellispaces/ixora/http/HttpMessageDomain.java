@@ -1,9 +1,9 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.ixora.data.datastream.ByteInputStreamDomain;
 import tech.intellispaces.jaquarius.annotation.Channel;
 import tech.intellispaces.jaquarius.annotation.Domain;
 import tech.intellispaces.jaquarius.annotation.Movable;
+import tech.intellispaces.jaquarius.ixora.data.stream.ByteInputStreamDomain;
 
 @Domain("0c5ed260-ccf7-4b7a-970c-12a696a99dbc")
 public interface HttpMessageDomain {

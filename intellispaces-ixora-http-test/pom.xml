@@ -35,11 +35,6 @@
             <artifactId>intellispaces-ixora-http</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
-        <dependency>
-            <groupId>tech.intellispaces.ixora</groupId>
-            <artifactId>intellispaces-ixora-data</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
 
         <!-- Testing -->
         <dependency>

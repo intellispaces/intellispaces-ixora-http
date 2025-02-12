@@ -1,9 +1,9 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.ixora.data.stream.DataStreams;
 import tech.intellispaces.ixora.internet.UriHandle;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.jaquarius.ixora.data.stream.DataStreams;
 import tech.intellispaces.jaquarius.ixora.data.stream.MovableByteInputStreamHandle;
 
 import java.io.InputStream;

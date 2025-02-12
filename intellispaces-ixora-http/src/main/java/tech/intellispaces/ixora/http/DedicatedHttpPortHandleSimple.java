@@ -1,6 +1,5 @@
 package tech.intellispaces.ixora.http;
 
-import tech.intellispaces.ixora.data.stream.ByteStreams;
 import tech.intellispaces.ixora.http.exception.HttpException;
 import tech.intellispaces.ixora.internet.JoinUrlGuide;
 import tech.intellispaces.ixora.internet.UriHandle;
@@ -9,6 +8,7 @@ import tech.intellispaces.jaquarius.annotation.AutoGuide;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.jaquarius.ixora.data.stream.ByteStreams;
 import tech.intellispaces.jaquarius.ixora.data.stream.InputDataStreamHandle;
 
 @ObjectHandle(DedicatedHttpPortDomain.class)

@@ -2,10 +2,10 @@ package tech.intellispaces.ixora.http;
 
 import tech.intellispaces.commons.base.collection.ArraysFunctions;
 import tech.intellispaces.commons.base.text.StringFunctions;
-import tech.intellispaces.ixora.data.stream.DataStreams;
 import tech.intellispaces.jaquarius.annotation.Mapper;
 import tech.intellispaces.jaquarius.annotation.MapperOfMoving;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
+import tech.intellispaces.jaquarius.ixora.data.stream.DataStreams;
 import tech.intellispaces.jaquarius.ixora.data.stream.MovableByteInputStreamHandle;
 
 import java.io.InputStream;

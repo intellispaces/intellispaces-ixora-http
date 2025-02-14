@@ -12,9 +12,9 @@ import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
 /**
- * Tests for {@link DedicatedHttpPortHandleSimple} class.
+ * Tests for {@link DedicatedHttpPortHandleImpl} class.
  */
-public class DedicatedHttpPortHandleSimpleTest {
+public class DedicatedHttpPortHandleImplTest {
 
   @BeforeEach
   public void init() {
@@ -47,7 +47,7 @@ public class DedicatedHttpPortHandleSimpleTest {
     ).thenReturn(response2);
 
     String baseUrl = "http:localhost:8080/api";
-    var dedicatedHttpPort = new DedicatedHttpPortHandleSimpleImpl(baseUrl, underlyingPort);
+    var dedicatedHttpPort = new DedicatedHttpPortHandleImplWrapper(baseUrl, underlyingPort);
 
     // When
     HttpResponseHandle actualResponse1 = dedicatedHttpPort.exchange("/test", httpGetMethod);

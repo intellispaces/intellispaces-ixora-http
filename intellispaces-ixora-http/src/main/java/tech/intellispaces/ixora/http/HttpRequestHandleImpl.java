@@ -9,12 +9,12 @@ import tech.intellispaces.jaquarius.ixora.data.stream.MovableByteInputStreamHand
 import java.io.InputStream;
 
 @ObjectHandle(HttpRequestDomain.class)
-abstract class HttpRequestHandleSimple implements UnmovableHttpRequestHandle {
+abstract class HttpRequestHandleImpl implements UnmovableHttpRequestHandle {
   private final HttpMethodHandle method;
   private final UriHandle requestURI;
   private final MovableByteInputStreamHandle bodyStream;
 
-  HttpRequestHandleSimple(HttpMethodHandle method, UriHandle requestURI) {
+  HttpRequestHandleImpl(HttpMethodHandle method, UriHandle requestURI) {
     this.method = method;
     this.requestURI = requestURI;
     this.bodyStream = DataStreams.get(InputStream.nullInputStream());

@@ -60,12 +60,12 @@ public final class HttpMethods {
 
   private HttpMethods() {}
 
-  private static final HttpMethodHandle GET = new HttpMethodHandleSimpleImpl("GET");
-  private static final HttpMethodHandle HEAD = new HttpMethodHandleSimpleImpl("HEAD");
-  private static final HttpMethodHandle POST = new HttpMethodHandleSimpleImpl("POST");
-  private static final HttpMethodHandle PUT = new HttpMethodHandleSimpleImpl("PUT");
-  private static final HttpMethodHandle PATCH = new HttpMethodHandleSimpleImpl("PATCH");
-  private static final HttpMethodHandle DELETE = new HttpMethodHandleSimpleImpl("DELETE");
-  private static final HttpMethodHandle OPTIONS = new HttpMethodHandleSimpleImpl("OPTIONS");
-  private static final HttpMethodHandle TRACE = new HttpMethodHandleSimpleImpl("TRACE");
+  private static final HttpMethodHandle GET = new HttpMethodHandleImplWrapper("GET");
+  private static final HttpMethodHandle HEAD = new HttpMethodHandleImplWrapper("HEAD");
+  private static final HttpMethodHandle POST = new HttpMethodHandleImplWrapper("POST");
+  private static final HttpMethodHandle PUT = new HttpMethodHandleImplWrapper("PUT");
+  private static final HttpMethodHandle PATCH = new HttpMethodHandleImplWrapper("PATCH");
+  private static final HttpMethodHandle DELETE = new HttpMethodHandleImplWrapper("DELETE");
+  private static final HttpMethodHandle OPTIONS = new HttpMethodHandleImplWrapper("OPTIONS");
+  private static final HttpMethodHandle TRACE = new HttpMethodHandleImplWrapper("TRACE");
 }

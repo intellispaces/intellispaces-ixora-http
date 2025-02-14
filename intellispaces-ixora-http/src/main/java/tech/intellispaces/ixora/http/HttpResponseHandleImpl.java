@@ -11,24 +11,24 @@ import tech.intellispaces.jaquarius.ixora.data.stream.MovableByteInputStreamHand
 import java.io.InputStream;
 
 @ObjectHandle(HttpResponseDomain.class)
-abstract class HttpResponseHandleSimple implements UnmovableHttpResponseHandle {
-  private final HttpStatusHandleSimple status;
+abstract class HttpResponseHandleImpl implements UnmovableHttpResponseHandle {
+  private final HttpStatusHandleImpl status;
   private final MovableByteInputStreamHandle bodyStream;
 
-  HttpResponseHandleSimple(HttpStatusHandleSimple status, InputStream body) {
+  HttpResponseHandleImpl(HttpStatusHandleImpl status, InputStream body) {
     this.status = status;
     this.bodyStream = DataStreams.get(body);
   }
 
-  HttpResponseHandleSimple(HttpStatusHandleSimple status, String body) {
+  HttpResponseHandleImpl(HttpStatusHandleImpl status, String body) {
     this(status, StringFunctions.stringToInputStream(body));
   }
 
-  HttpResponseHandleSimple(HttpStatusHandleSimple status, byte[] body) {
+  HttpResponseHandleImpl(HttpStatusHandleImpl status, byte[] body) {
     this(status, ArraysFunctions.arrayToInputStream(body));
   }
 
-  HttpResponseHandleSimple(HttpStatusHandleSimple status) {
+  HttpResponseHandleImpl(HttpStatusHandleImpl status) {
     this(status, InputStream.nullInputStream());
   }
 

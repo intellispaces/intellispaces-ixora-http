@@ -4,20 +4,20 @@ import java.io.InputStream;
 
 public interface HttpResponses {
 
-  static HttpResponseHandle get(HttpStatusHandleSimple status) {
-    return new HttpResponseHandleSimpleImpl(status);
+  static HttpResponseHandle get(HttpStatusHandleImpl status) {
+    return new HttpResponseHandleImplWrapper(status);
   }
 
-  static HttpResponseHandle get(HttpStatusHandleSimple status, InputStream body) {
-    return new HttpResponseHandleSimpleImpl(status, body);
+  static HttpResponseHandle get(HttpStatusHandleImpl status, InputStream body) {
+    return new HttpResponseHandleImplWrapper(status, body);
   }
 
-  static HttpResponseHandle get(HttpStatusHandleSimple status, String body) {
-    return new HttpResponseHandleSimpleImpl(status, body);
+  static HttpResponseHandle get(HttpStatusHandleImpl status, String body) {
+    return new HttpResponseHandleImplWrapper(status, body);
   }
 
-  static HttpResponseHandle get(HttpStatusHandleSimple status, byte[] body) {
-    return new HttpResponseHandleSimpleImpl(status, body);
+  static HttpResponseHandle get(HttpStatusHandleImpl status, byte[] body) {
+    return new HttpResponseHandleImplWrapper(status, body);
   }
 
   static HttpResponseHandle ok(String body) {

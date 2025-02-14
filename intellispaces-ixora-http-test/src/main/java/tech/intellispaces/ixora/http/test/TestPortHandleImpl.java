@@ -9,10 +9,10 @@ import tech.intellispaces.jaquarius.annotation.Mover;
 import tech.intellispaces.jaquarius.annotation.ObjectHandle;
 
 @ObjectHandle(TestPortDomain.class)
-public abstract class TestPortHandleSimple implements MovableTestPortHandle {
+public abstract class TestPortHandleImpl implements MovableTestPortHandle {
   private final MovableInboundHttpPortHandle operativePort;
 
-  public TestPortHandleSimple(MovableInboundHttpPortHandle operativePort) {
+  public TestPortHandleImpl(MovableInboundHttpPortHandle operativePort) {
     this.operativePort = operativePort;
   }
 

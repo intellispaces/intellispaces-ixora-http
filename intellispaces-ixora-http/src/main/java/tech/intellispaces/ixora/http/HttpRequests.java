@@ -6,7 +6,7 @@ import tech.intellispaces.ixora.internet.Uris;
 public interface HttpRequests {
 
   static UnmovableHttpRequestHandle get(HttpMethodHandle method, UriHandle requestURI) {
-    return new HttpRequestHandleSimpleImpl(method, requestURI);
+    return new HttpRequestHandleImplWrapper(method, requestURI);
   }
 
   static UnmovableHttpRequestHandle get(HttpMethodHandle method, String requestURI) {

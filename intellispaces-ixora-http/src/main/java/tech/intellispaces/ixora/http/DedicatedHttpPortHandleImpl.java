@@ -12,11 +12,11 @@ import tech.intellispaces.jaquarius.ixora.data.stream.ByteStreams;
 import tech.intellispaces.jaquarius.ixora.data.stream.InputDataStreamHandle;
 
 @ObjectHandle(DedicatedHttpPortDomain.class)
-public abstract class DedicatedHttpPortHandleSimple implements MovableDedicatedHttpPortHandle {
+public abstract class DedicatedHttpPortHandleImpl implements MovableDedicatedHttpPortHandle {
   private final String baseUrl;
   private final MovableHttpPortHandle underlyingPort;
 
-  public DedicatedHttpPortHandleSimple(String baseUrl, MovableHttpPortHandle underlyingPort) {
+  public DedicatedHttpPortHandleImpl(String baseUrl, MovableHttpPortHandle underlyingPort) {
     this.baseUrl = baseUrl;
     this.underlyingPort = underlyingPort;
   }
